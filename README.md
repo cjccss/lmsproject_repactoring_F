@@ -3,7 +3,7 @@
    
  
 
-### 상세내용
+## 상세내용
 
 ```
 지금까지 공부한 ReactJS와 NextJS를 되돌아보고 연습할겸 이전에 JSP방식으로 진행한
@@ -14,7 +14,7 @@
 사용기술 및 사용 툴 :  Html, Css, ReactJS v18, NextJS v18, Recoil, Java, MySQL, VSCode, AWS 
 
 
-### 계획
+## 계획
 - All
     - JSP(JavaServer Pages) → SPA(Single Page Application)
     프론트, 백 분리개발하기
@@ -22,7 +22,6 @@
     - 코드는 자바스크립트 → 리액트, 서버는 nextjs,  상태관리 recoil 사용해보기
     - 에러처리페이지 활용하기(404.js or error boundary)
     - SEO, 웹최적화 해보기
-    - 앨범게시판? 또는 게시판 정렬방식을 이미지가보이는 식으로 바꿔서 이미지최적화 해보기
     - 로그인 JWT 사용해보기
     - 네이버, 카카오 등 sns 회원가입 및 로그인 추가
 - Back
