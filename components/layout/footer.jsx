@@ -16,7 +16,8 @@ export default function Footer() {
                     <br/>
                     FAX 02-336-8546
                 </div>
-                <style jsx>{`
+            </footer>
+            <style jsx>{`
                     footer {
                         background-color:#F5F5F5;
                         margin-top:80px;
@@ -41,8 +42,7 @@ export default function Footer() {
                     span:nth-child(2) {
                         color: #999999;
                     }
-                `}</style>
-            </footer>
+            `}</style>
         </>
     );
 }

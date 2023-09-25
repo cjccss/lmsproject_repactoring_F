@@ -1,7 +1,11 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import SideNav from './sideinfo';
+import HeaderNav from './headernav';
+import {usePathname} from 'next/navigation';
 
 export default function Header() {
+    const path = usePathname();
     return(
         <>
             <Head>
@@ -13,29 +17,34 @@ export default function Header() {
             <header>
                     <div>
                         <button type="button">로그인</button>
+                        {path === "/" ? <SideNav /> : ''}
                     </div>
                     <span><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교"/></span>
-                <style jsx>{`
-                    header {
-                        height:220px;
-                        border-bottom: solid 1.5px black;
-                        align-items: center;
-                    }
-                    div{
-                        text-align: right;
-                        padding: 30px 50px 0 0;
-                    }
-                    button{
-                        float: right;
-                        all:unset;
-                    }
-                    span{
-                        cursor: pointer;
-                        display: flex;
-                        justify-content: center;
-                    }
-                `}</style>
             </header>
+            {path === "/" ? '' : <HeaderNav />}
+            <style jsx>{`
+                header {
+                    height:220px;
+                    border-bottom: solid 1.5px black;
+                    align-items: center;
+                }
+                header div {
+                    padding: 30px 50px 0 0;
+                    height: 35px;
+                }
+                div button{
+                    float: right;
+                    border : 0;
+                    border-radius: 10px;
+                    padding: 5px 10px 5px 10px; 
+                    box-shadow: 4px 4px 4px;
+                }
+                span{
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                }
+            `}</style>
         </>
     );
 
