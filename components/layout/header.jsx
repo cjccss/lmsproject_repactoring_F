@@ -25,7 +25,7 @@ export default function Header() {
             <style jsx>{`
                 header {
                     height:220px;
-                    border-bottom: solid 1.5px black;
+                    border-bottom: solid 1px black;
                     align-items: center;
                 }
                 header div {

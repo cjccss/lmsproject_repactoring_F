@@ -9,10 +9,10 @@ export default function Layout({children}) {
             <main>{children}</main>
             <Footer />
             <style jsx>{`
-                main {
+                /* main {
                     min-height: 100vh;
                     padding-top: 10px;
-                }
+                } */
             `}</style>
         </>
     )

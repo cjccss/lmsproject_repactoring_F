@@ -10,6 +10,7 @@ export default function SideNav() {
             <div onClick={() =>setisOpen((prev) => !prev)}>
                 <Image width={35} height={35} src="/images/close.png" alt="close"/>
             </div>
+            {/* 로그인했으면 "이름" 표시 로그인 안했으면 "로그인을 해주세요"표시 */}
             <ul>
                 <Link href=""><li>마이페이지</li></Link>
                 <Link href=""><li>공지사항</li></Link>
@@ -31,7 +32,7 @@ export default function SideNav() {
                 overflow-x: hidden;
                 transition: 0.5s;
                 padding-top: 30px;
-                /* z-index:1; */
+                z-index:2; 
             }
             nav li {
                 padding: 8px 25px 8px 0;

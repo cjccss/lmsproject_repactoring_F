@@ -1,18 +1,30 @@
-import Image from "next/image"
-import Link from "next/link"
-
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import Image from "next/image";
+import Link from "next/link";
+import BoardwithChart from "../components/home/boardwithchart";
 
 export default function Home() {
+
   return (
     <>
       <section className="contents">
         <article>
-          달력
+          <FullCalendar
+            height={'65vh'}
+            expandRows={true}
+            aspectRatio={'1.1'}
+            plugins={[ dayGridPlugin ]}
+            initialView="dayGridMonth"
+          />
         </article>
         <article>
           <Link href={'/'}>로그인을 해주세요</Link>
+          {/* 로그인했으면 해당일의 강의목록 표시(학생, 교수 둘다) */}
         </article>
-        <article>인기글</article>
+        <article>
+        <BoardwithChart />
+        </article>
       </section>
       <style jsx>{`
         section {
@@ -20,30 +32,26 @@ export default function Home() {
           grid-template-areas:
             "a b"
             "c c";
+          margin-top: 5vh;
         }
         article:nth-child(1) {
-          background-color: bisque;
           grid-area: a;
-          /*float: left; 
-          width: 42%;
-          height:600px; */
-          padding:10px;
-          margin-left: 4vw;
+          padding-right:2vw;
+          margin: 2vw;
+          width: 80%;
+          border-right: 1px solid black; 
         }
         article:nth-child(2) {
-          background-color: rgb(220, 255, 196);
           grid-area: b;
-          border-left: 1px solid black; 
-          /* float: left; 
-          height:600px;
-          width: 42%;  */
-          padding: 10px;
-          text-align: center;
+          display: grid;
+          align-content: center;
+          margin: 2vw;
         }
         article:nth-child(3) {
-          background-color: rgb(207, 196, 255);
           grid-area: c;
+          margin: 2vw;
         }
+
       `}</style>
     </>
   )

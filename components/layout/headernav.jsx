@@ -14,17 +14,19 @@ export default function HeaderNav() {
         <style jsx>{`
             nav {
                 border-bottom: solid 1px black;
-            }
-            li {
-                text-align:center;
-                width: 350px;
-                color: black;
-                border-right: solid 1px black;
-                padding: 2px;
-                float: left;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: gainsboro;
             }
             ul {
-                
+                margin: 0;
+                list-style: none;
+                display: flex;
+            }
+            li {
+                padding: 8px 50px;
+                color: black;              
             }
         `}</style>
     </>
