@@ -1,11 +1,12 @@
 
 
-export default function ToggleSwitch() {
+export default function ToggleSwitch({ onCheck }) {
+    
 
     return (
     <>
         <label>
-            <input type="checkbox"/>
+            <input type="checkbox" onClick={(e) => onCheck(e.target.checked)}/>
             <span></span>
         </label>
         <style jsx>{`

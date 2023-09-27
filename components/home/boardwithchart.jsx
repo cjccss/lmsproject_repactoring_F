@@ -1,10 +1,15 @@
 import ToggleSwitch from "./toggleSwitch";
+import { useState } from "react";
 
 export default function BoardwithChart() {
+    const [switchOn, setSwitchOn] = useState(false);
+    const onCheck = (bool) => {
+        setSwitchOn(bool);
+    };
     return(
     <>
     {/* index.jsp의 go_boardDisplay() 참고 */}
-        <ToggleSwitch />
+        <ToggleSwitch onCheck={onCheck} />
         <div id="mainBoard">       
             <div id= "mainhead">       
                 <h2>커뮤니티2</h2>
