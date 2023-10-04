@@ -15,7 +15,7 @@ export default function ToggleSwitch({ onCheck }) {
                 display: inline-block;
                 width: 50px;
                 height: 20px;
-                margin-left: 1100px;
+                justify-self: end;
             }
             label input {display:none;}
             span {

@@ -1,8 +1,17 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import Image from "next/image";
 import Link from "next/link";
 import BoardwithChart from "../components/home/boardwithchart";
+import styled from "styled-components";
+
+const FullCalendarContainer = styled.div`
+  .fc .fc-button {
+    padding: 0.2em 0.2em;
+  }
+  .fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 1.2em;
+  }
+`;
 
 export default function Home() {
 
@@ -10,48 +19,44 @@ export default function Home() {
     <>
       <section className="contents">
         <article>
-          <FullCalendar
-            height={'65vh'}
-            expandRows={true}
-            aspectRatio={'1.1'}
-            plugins={[ dayGridPlugin ]}
-            initialView="dayGridMonth"
-          />
-        </article>
-        <article>
-          <Link href={'/'}>로그인을 해주세요</Link>
+          <div>
+            <FullCalendarContainer>
+              <FullCalendar
+                height={'65vh'}
+                expandRows={true}
+                aspectRatio={'1'}
+                plugins={[ dayGridPlugin ]}
+                initialView="dayGridMonth"
+              />
+            </FullCalendarContainer>
+          </div>
+          <div><Link href={'/'}>로그인을 해주세요</Link></div>
           {/* 로그인했으면 해당일의 강의목록 표시(학생, 교수 둘다) */}
         </article>
         <article>
-        <BoardwithChart />
+          <BoardwithChart />
         </article>
       </section>
       <style jsx>{`
-        section {
-          display: grid;
-          grid-template-areas:
-            "a b"
-            "c c";
-          margin-top: 5vh;
+        div {
+          width: 50%;
+        }
+        div:nth-child(2) {
+          border-left: 1px solid black;   
+          margin-left: 2vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         article:nth-child(1) {
-          grid-area: a;
-          padding-right:2vw;
+          display: flex;
           margin: 2vw;
-          width: 80%;
-          border-right: 1px solid black; 
         }
         article:nth-child(2) {
-          grid-area: b;
           display: grid;
           align-content: center;
-          margin: 2vw;
+          margin: 2vh 4vw 2vh 4vw;
         }
-        article:nth-child(3) {
-          grid-area: c;
-          margin: 2vw;
-        }
-
       `}</style>
     </>
   )
