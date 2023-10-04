@@ -3,6 +3,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import Link from "next/link";
 import BoardwithChart from "../components/home/boardwithchart";
 import styled from "styled-components";
+import SeoTitle from "@/components/common/seotitle";
 
 const FullCalendarContainer = styled.div`
   .fc .fc-button {
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <>
+      <SeoTitle title = "홈" />
       <section className="contents">
         <article>
           <div>

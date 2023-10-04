@@ -3,6 +3,7 @@ import Image from 'next/image';
 import SideNav from './sideinfo';
 import HeaderNav from './headernav';
 import {usePathname} from 'next/navigation';
+import Link from 'next/link';
 
 export default function Header() {
     const path = usePathname();
@@ -16,12 +17,12 @@ export default function Header() {
             </Head>
             <header>
                     <div>
-                        <button type="button">로그인</button>
+                        <Link href={'/user/signin'}><span type="button">로그인</span></Link>
                         {path === "/" ? <SideNav /> : ''}
                     </div>
-                    <span><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교"/></span>
+                    <span><Link href={'/'}><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교"/></Link></span>
             </header>
-            {path === "/" ? '' : <HeaderNav />}
+            {path === "/" || path === "/user/signin" ? '' : <HeaderNav />}
             <style jsx>{`
                 header {
                     height:220px;
@@ -32,12 +33,13 @@ export default function Header() {
                     padding: 30px 50px 0 0;
                     height: 35px;
                 }
-                div button{
+                div span{
                     float: right;
                     border : 0;
                     border-radius: 10px;
                     padding: 5px 10px 5px 10px; 
                     box-shadow: 4px 4px 4px;
+                    background-color: gainsboro;
                 }
                 span{
                     cursor: pointer;
