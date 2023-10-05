@@ -17,7 +17,7 @@ export default function Header() {
             </Head>
             <header>
                     <div>
-                        <Link href={'/user/signin'}><span type="button">로그인</span></Link>
+                        <Link href={'/user/login'}><span>로그인</span></Link>
                         {path === "/" ? <SideNav /> : ''}
                     </div>
                     <span><Link href={'/'}><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교"/></Link></span>
