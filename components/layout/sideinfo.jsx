@@ -51,7 +51,7 @@ export default function SideNav() {
                 text-align: right;
             }
             div {
-                padding-left: 30px;
+                margin-left: 3em;
             }
         `}</style>
     </>

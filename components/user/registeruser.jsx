@@ -1,11 +1,10 @@
 import SeoTitle from "@/components/common/seotitle";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
-import { loginInfo } from "@/recoil/user";
+import { registerUser } from "@/recoil/user";
 
 
-export default function Login() {
+export default function RegisterUser() {
     const exceptInput = ['e','E','-','.'];
     const {
         register, 
@@ -13,13 +12,13 @@ export default function Login() {
         formState: {errors},
     } = useForm({mode: 'onBlur'});
 
-    const[loginFrm, setLoginFrm] = useRecoilState(loginInfo);
+    const[loginFrm, setLoginFrm] = useRecoilState(registerUser);
 
     return(
         <form onSubmit={handleSubmit((e) => setLoginFrm(e))}>
-            <SeoTitle title = "로그인" />
-            <h1> 로그인 </h1>
+            <h1> 등록하기 </h1>
             <div className="loginFrm">
+                아이디
                 <input type="number" name="userid" className="form-control" 
                     placeholder="학번/교번" id="loginUserid"
                     onKeyDown={(e) => exceptInput.includes(e.key) && e.preventDefault()}
@@ -32,27 +31,24 @@ export default function Login() {
                     })}
                 />
                 <p>{errors.userid?.message}</p>
-                <input type="password" name="pwd" className="form-control" 
-                    placeholder="●●●●" id="loginPwd" maxLength="20" 
+                이름
+                <input type="text" name="pwd" className="form-control" 
+                    placeholder="성명" id="loginPwd" maxLength="20" 
                     {...register("pwd", {
-                            required: "비밀번호를 입력해주세요.",  
+                            required: "이름 입력해주세요.",  
+                    })}    
+                />
+                <p>{errors.pwd?.message}</p>
+                이메일
+                <input type="email" name="pwd" className="form-control" 
+                    placeholder="example@ssangyong.ac.kr" id="loginPwd" maxLength="20" 
+                    {...register("pwd", {
+                            required: "이메일을 입력해주세요.",  
                     })}    
                 />
                 <p>{errors.pwd?.message}</p>
             </div>
-            <div className="rememberId">
-                <input type="checkbox" id="saveid" name="saveid"/>
-                <label htmlFor="saveid">&nbsp;아이디저장</label>                       
-                <span className="findAccount">
-                    <Link href={'/'}>아이디 찾기</Link>
-                    /
-                    <Link href={'/'}>비밀번호 찾기</Link>
-                </span>
-            </div>
-            <button type="submit">로그인</button>
-            <div className="regAccount">
-                <Link href={'/user/registeruser'}>등록하기</Link>
-            </div>
+            <button type="submit">이메일 인증하기</button>
             <style jsx>{`
                 form {
                     margin: 10%;
@@ -66,9 +62,10 @@ export default function Login() {
                     margin-bottom: 2em;
                 }
                 input[type=number],
-                input[type=password]  {
+                input[type=text],
+                input[type=email]  {
                     height:3em;
-                    width: 97.5%;
+                    width: 100%;
                     margin-top: 0.5em;
                 }
                 input[type=number]::-webkit-outer-spin-button,
@@ -78,27 +75,6 @@ export default function Login() {
                 }
                 input[type=checkbox] {
                     float: left;
-                }
-                label {
-                    position: relative;
-                    top: -1px;
-                    float: left;
-                }
-                label:hover {
-                    font-weight: bolder;
-                }
-                .rememberId {
-                    width: 40%;
-                    margin: 0.5em 0 0.5em 0;
-                }
-                .findAccount {
-                    float: right;
-                    cursor: pointer;
-                }
-                .regAccount {
-                    cursor: pointer;
-                    width: 40%;
-                    text-align: end;
                 }
                 button {
                     background-color: #666;

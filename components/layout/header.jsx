@@ -27,11 +27,13 @@ export default function Header() {
                 header {
                     height:220px;
                     border-bottom: solid 1px black;
-                    align-items: center;
+                    padding-bottom: 1em;
                 }
                 header div {
-                    padding: 30px 50px 0 0;
                     height: 35px;
+                    position: relative;
+                    top: 4em;
+                    margin-right: 3em;
                 }
                 div span{
                     float: right;
@@ -45,6 +47,7 @@ export default function Header() {
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
+                    mar
                 }
             `}</style>
         </>
