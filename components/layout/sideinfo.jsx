@@ -7,7 +7,7 @@ export default function SideNav() {
     return(
     <>
         <nav>
-            <div onClick={() =>setisOpen((prev) => !prev)}>
+            <div onClick={() => setisOpen((prev) => !prev)}>
                 <Image width={35} height={35} src="/images/close.png" alt="close"/>
             </div>
             {/* 로그인했으면 "이름" 표시 로그인 안했으면 "로그인을 해주세요"표시 */}

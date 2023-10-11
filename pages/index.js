@@ -1,9 +1,14 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
 import Link from "next/link";
 import BoardwithChart from "../components/home/boardwithchart";
 import styled from "styled-components";
-import SeoTitle from "@/components/common/seotitle";
+import SeoTitle from "../components/common/seotitle";
+import AddToCalendar from "../components/home/addtocalendar";
+import { useState } from "react";
+
+
 
 const FullCalendarContainer = styled.div`
   .fc .fc-button {
@@ -15,10 +20,18 @@ const FullCalendarContainer = styled.div`
 `;
 
 export default function Home() {
+  const [isOpen, setisOpen] = useState(false);
+  const isClose = (bool) => {
+    setisOpen(bool);
+  };
 
+  const addToCalendar = () => {
+    setisOpen((prev) => !prev)
+  }
   return (
     <>
       <SeoTitle title = "홈" />
+      {isOpen&&<AddToCalendar isClose={isClose}/>}
       <section className="contents">
         <article>
           <div>
@@ -27,8 +40,9 @@ export default function Home() {
                 height={'65vh'}
                 expandRows={true}
                 aspectRatio={'1'}
-                plugins={[ dayGridPlugin ]}
+                plugins={[ dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
+                dateClick={addToCalendar}  
               />
             </FullCalendarContainer>
           </div>
