@@ -52,6 +52,7 @@ export default function SideNav() {
             }
             div {
                 margin-left: 3em;
+                width: 5%;
             }
         `}</style>
     </>

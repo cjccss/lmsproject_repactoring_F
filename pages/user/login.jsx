@@ -44,9 +44,9 @@ export default function Login() {
                 <input type="checkbox" id="saveid" name="saveid"/>
                 <label htmlFor="saveid">&nbsp;아이디저장</label>                       
                 <span className="findAccount">
-                    <Link href={'/'}>아이디 찾기</Link>
+                    <Link href={'/user/finduser?type=id'}>아이디 찾기</Link>
                     /
-                    <Link href={'/'}>비밀번호 찾기</Link>
+                    <Link href={'/user/finduser?type=pwd'}>비밀번호 찾기</Link>
                 </span>
             </div>
             <button type="submit">로그인</button>
@@ -113,7 +113,7 @@ export default function Login() {
                     font-weight: bolder;
                 }
                 p {
-                    margin: 0.5em 0 0 0.2em;
+                    margin: 0.5em 0 0.5em 0.5em;
                     color: red;
                 }
             `}</style>

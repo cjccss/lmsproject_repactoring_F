@@ -32,7 +32,7 @@ export default function Home() {
               />
             </FullCalendarContainer>
           </div>
-          <div><Link href={'/'}>로그인을 해주세요</Link></div>
+          <div><Link href={'/user/login'}>로그인을 해주세요</Link></div>
           {/* 로그인했으면 해당일의 강의목록 표시(학생, 교수 둘다) */}
         </article>
         <article>

@@ -6,6 +6,8 @@ export default function Login() {
         <>
             <SeoTitle title = "회원등록" />
             <RegisterUser />
+            {/* 이메일인증
+            등록완료 컴포넌트 나눠서 가능..?*/}
         </>
     );
 }

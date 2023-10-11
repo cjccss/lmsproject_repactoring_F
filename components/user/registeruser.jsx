@@ -1,4 +1,3 @@
-import SeoTitle from "@/components/common/seotitle";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { registerUser } from "@/recoil/user";
@@ -32,21 +31,21 @@ export default function RegisterUser() {
                 />
                 <p>{errors.userid?.message}</p>
                 이름
-                <input type="text" name="pwd" className="form-control" 
-                    placeholder="성명" id="loginPwd" maxLength="20" 
-                    {...register("pwd", {
-                            required: "이름 입력해주세요.",  
+                <input type="text" name="name" className="form-control" 
+                    placeholder="성명" id="loginName" maxLength="20" 
+                    {...register("name", {
+                            required: "이름을 입력해주세요.",  
                     })}    
                 />
-                <p>{errors.pwd?.message}</p>
+                <p>{errors.name?.message}</p>
                 이메일
-                <input type="email" name="pwd" className="form-control" 
-                    placeholder="example@ssangyong.ac.kr" id="loginPwd" maxLength="20" 
-                    {...register("pwd", {
+                <input type="email" name="email" className="form-control" 
+                    placeholder="example@ssangyong.ac.kr" id="loginEmail" maxLength="20" 
+                    {...register("email", {
                             required: "이메일을 입력해주세요.",  
                     })}    
                 />
-                <p>{errors.pwd?.message}</p>
+                <p>{errors.email?.message}</p>
             </div>
             <button type="submit">이메일 인증하기</button>
             <style jsx>{`
@@ -65,7 +64,7 @@ export default function RegisterUser() {
                 input[type=text],
                 input[type=email]  {
                     height:3em;
-                    width: 100%;
+                    width: 97.5%;
                     margin-top: 0.5em;
                 }
                 input[type=number]::-webkit-outer-spin-button,
@@ -89,7 +88,7 @@ export default function RegisterUser() {
                     font-weight: bolder;
                 }
                 p {
-                    margin: 0.5em 0 0 0.2em;
+                    margin: 0.5em 0 0.5em 0.5em;
                     color: red;
                 }
             `}</style>
