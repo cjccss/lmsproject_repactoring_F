@@ -25,7 +25,7 @@ export default function FindUser() {
     // 이메일 인증 후 type=pwd 일 경우 비밀번호 변경 컴포넌트 or 페이지로 이동
     return(
         <>
-            <SeoTitle title = "회원정보찾기" />
+            <SeoTitle title = {type == 'id'?'아이디 찾기':'비밀번호 찾기'} />
             <form onSubmit={handleSubmit((e) => setLoginFrm(e))}>
                 <h1> {type == 'id'?'아이디 찾기':'비밀번호 찾기'}</h1>
                 <div className="loginFrm">

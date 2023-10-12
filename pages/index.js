@@ -2,11 +2,14 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Link from "next/link";
-import BoardwithChart from "../components/home/boardwithchart";
+import BoardwithChart from "/components/home/boardwithchart";
 import styled from "styled-components";
 import SeoTitle from "../components/common/seotitle";
 import AddToCalendar from "../components/home/addtocalendar";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import { isLogin } from "../recoil/user";
+import LectureList from "@/components/home/lectureList";
 
 
 
@@ -22,6 +25,8 @@ const FullCalendarContainer = styled.div`
 export default function Home() {
   const [isOpen, setisOpen] = useState(false);
   const [clickDate, setclickDate] = useState();
+  const [loginCheck, setloginCheck] = useRecoilState(isLogin);
+
   const isClose = (bool) => {
     setisOpen(bool);
   };
@@ -48,7 +53,13 @@ export default function Home() {
               />
             </FullCalendarContainer>
           </div>
-          <div><Link href={'/user/login'}>로그인을 해주세요</Link></div>
+          <div>
+            {loginCheck?
+              <LectureList />
+            :
+              <Link href={'/user/login'}>로그인을 해주세요</Link>
+            }
+          </div>
           {/* 로그인했으면 해당일의 강의목록 표시(학생, 교수 둘다) */}
         </article>
         <article>
