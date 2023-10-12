@@ -4,8 +4,11 @@ import SideNav from './sideinfo';
 import HeaderNav from './headernav';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
+import { useRecoilState } from 'recoil';
+import { isLogin } from '@/recoil/user';
 
 export default function Header() {
+    const [loginCheck, setloginCheck] = useRecoilState(isLogin);
     const path = usePathname();
     return(
         <>
@@ -17,7 +20,11 @@ export default function Header() {
             </Head>
             <header>
                     <div>
-                        <Link href={'/user/login'}><span>로그인</span></Link>
+                        {loginCheck?
+                            <Link href={'/'}><span>이길동 님</span></Link>
+                        :
+                            <Link href={'/user/login'}><span>로그인</span></Link>
+                        }   
                         {path === "/" ? <SideNav /> : ''}
                     </div>
                     <span><Link href={'/'}><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교"/></Link></span>
@@ -48,6 +55,9 @@ export default function Header() {
                     display: flex;
                     justify-content: center;
                     mar
+                }
+                @media(max-width: 640px) {
+                    header div {top: 2em;margin-right: 2em;}
                 }
             `}</style>
         </>

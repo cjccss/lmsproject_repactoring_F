@@ -19,7 +19,7 @@ export default function SideNav() {
                     <Link href=""><li>마이페이지</li></Link>
                     <Link href=""><li>공지사항</li></Link>
                     <Link href=""><li>Q&A</li></Link>
-                    <Link href=""><li>커뮤니티</li></Link>
+                    <Link href="/board"><li>커뮤니티</li></Link>
                     <Link href=""><li>열람실좌석예약</li></Link>
                 </ul>
             :   

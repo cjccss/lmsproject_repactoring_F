@@ -12,6 +12,6 @@ export const registerUser = atom({
 
 export const isLogin = atom({
     key: "isLogin",
-    default: true,
+    default: false,
     // sql연동 후 default: false로 바꾸기
 })

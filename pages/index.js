@@ -4,11 +4,11 @@ import interactionPlugin from "@fullcalendar/interaction";
 import Link from "next/link";
 import BoardwithChart from "/components/home/boardwithchart";
 import styled from "styled-components";
-import SeoTitle from "../components/common/seotitle";
-import AddToCalendar from "../components/home/addtocalendar";
+import SeoTitle from "@/components/common/seotitle";
+import AddToCalendar from "@/components/home/addtocalendar";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import { isLogin } from "../recoil/user";
+import { isLogin } from '@/recoil/user';
 import LectureList from "@/components/home/lectureList";
 
 
@@ -85,6 +85,11 @@ export default function Home() {
           display: grid;
           align-content: center;
           margin: 2vh 4vw 2vh 4vw;
+        }
+        @media(max-width: 640px) {
+          article:nth-child(1) {display: block;}
+          div:nth-child(2) {border-left: none;width:80%}
+          div {width: 100%;}
         }
       `}</style>
     </>

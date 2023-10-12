@@ -25,8 +25,23 @@ export default function HeaderNav() {
                 display: flex;
             }
             li {
-                padding: 8px 50px;
+                padding: 0.5em 10em;
                 color: black;              
+            }
+            @media(max-width: 1265px) {
+                li {padding: 0.5em 8em;}
+            }
+            @media(max-width: 1059px) {
+                li {padding: 0.5em 6em;}
+            }
+            @media(max-width: 850px) {
+                li {padding: 0.5em 4em;}
+            }
+            @media(max-width: 640px) {
+                li {padding: 0.5em 2em;}
+            }
+            @media(max-width: 640px) {
+                li {font-size: 0.8em;}
             }
         `}</style>
     </>

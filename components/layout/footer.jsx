@@ -21,7 +21,7 @@ export default function Footer() {
                     footer {
                         background-color:#F5F5F5;
                         margin-top:80px;
-                        padding: 80px 10px 100px 50px;
+                        padding: 3em 1em 4em 1em;
                     }
                     div:nth-child(1){
                         float: left;
@@ -29,18 +29,23 @@ export default function Footer() {
                         padding:10px;
                     }
                     div:nth-child(2) {
-                        font-size:12pt;
+                        font-size:1em;
                         font-weight:bold;
                         align: left;
                         padding:10px;
                         text-align: right;
                     }
                     span:nth-child(1) {
-                        font-size: 25pt; 
+                        font-size: 2.2em; 
                         font-weight: bold;    
                     }
                     span:nth-child(2) {
                         color: #999999;
+                    }
+                    @media(max-width: 640px) {
+                        footer {padding: 1em 1em 4.4em 1em;}
+                        span:nth-child(1) {font-size: 2em;  }
+                        div:nth-child(2) {font-size:0.9em;}
                     }
             `}</style>
         </>
