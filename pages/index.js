@@ -21,17 +21,19 @@ const FullCalendarContainer = styled.div`
 
 export default function Home() {
   const [isOpen, setisOpen] = useState(false);
+  const [clickDate, setclickDate] = useState();
   const isClose = (bool) => {
     setisOpen(bool);
   };
 
-  const addToCalendar = () => {
+  const addToCalendar = (e) => {
     setisOpen((prev) => !prev)
+    setclickDate(e.dateStr);
   }
   return (
     <>
       <SeoTitle title = "홈" />
-      {isOpen&&<AddToCalendar isClose={isClose}/>}
+      {isOpen&&<AddToCalendar isClose={isClose} clickDate={clickDate}/>}
       <section className="contents">
         <article>
           <div>

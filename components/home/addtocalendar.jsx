@@ -1,21 +1,26 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 
-export default function AddToCalendar({isClose}){   
+export default function AddToCalendar({isClose, clickDate}){   
     const exceptInput = ['e','E','-','.'];
+    const [selected, setselected] = useState();
     const {
         register, 
         handleSubmit, 
         formState: {errors},
     } = useForm({mode: 'onBlur'});
 
+    // useEffect(() => {
+    //     console.log(clickDate);
+    // })
     return(
         <div>
             <span onClick={() => isClose(false)}></span>
             <p>일정 추가</p>
             <form onSubmit={handleSubmit}>
                 색상
-                <select>
+                <select onChange={(e) => setselected(e.target.value)} value={selected}>
                     <option value="#9775FA"></option>
                     <option value="#F06595"></option>
                     <option value="#919191"></option>
@@ -23,15 +28,17 @@ export default function AddToCalendar({isClose}){
                     <option value="#3788D8"></option>
                 </select>
                 제목<input type="text" />
-                기간(시작기간 선택한 날짜로)
-                <input type="date" />&nbsp;~&nbsp;<input type="date" />
-                메모(100글자제한)
-                <input type="text" maxLength="100" />
+                기간
+                <div>
+                    <input type="date" value={clickDate}/>&nbsp;~&nbsp;<input type="date" value={clickDate}/>
+                </div>
+                메모
+                <input type="text" maxLength="20" />
                 <button>추가</button>
             </form>
 
             <style jsx>{`
-                div {
+                div:first-child {
                     width: 30em;
                     height: 24em;
                     z-index: 999;
@@ -73,7 +80,11 @@ export default function AddToCalendar({isClose}){
                     display: grid;
                 }
                 select {
-                    width: 3em;
+                    width: 4em;
+                    margin-top: 0.2em;
+                    margin-bottom: 0.5em;
+                    padding: 0.2em 0 0.2em 0;
+                    background-color: ${selected};
                 }
                 select option:nth-child(1) {
                     background-color: #9775FA;
@@ -91,11 +102,19 @@ export default function AddToCalendar({isClose}){
                     background-color: #3788D8;
                 }
                 input {
-                    width: 20em;
+                    width: 22em;
+                    margin-top: 0.2em;
                     margin-bottom: 0.5em;
-                } 
+                    padding: 0.3em 0 0.3em 0;
+                }
+                input[type=date] {
+                    width: 10em;
+                    text-align: center;
+                    padding: 0.1em 0 0.2em 0;
+                }
                 button {
-
+                    margin-top: 0.2em;
+                    padding: 0.1em;
                 }
             `}</style>
         </div>
