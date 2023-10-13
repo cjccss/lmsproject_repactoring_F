@@ -30,7 +30,7 @@ export default function AddToCalendar({isClose, clickDate}){
                 제목<input type="text" />
                 기간
                 <div>
-                    <input type="date" value={clickDate}/>&nbsp;~&nbsp;<input type="date" value={clickDate}/>
+                    <input type="date" value={clickDate}/> ~ <input type="date" value={clickDate}/>
                 </div>
                 메모
                 <input type="text" maxLength="20" />
@@ -102,19 +102,30 @@ export default function AddToCalendar({isClose, clickDate}){
                     background-color: #3788D8;
                 }
                 input {
-                    width: 22em;
+                    width: 27em;
                     margin-top: 0.2em;
                     margin-bottom: 0.5em;
                     padding: 0.3em 0 0.3em 0;
                 }
                 input[type=date] {
-                    width: 10em;
+                    width: 11.7em;
                     text-align: center;
                     padding: 0.1em 0 0.2em 0;
+                }
+                input[type=date]:nth-child(1) {
+                    margin-right: 1em;
+                }
+                input[type=date]:nth-child(2) {
+                    margin-left: 1em;
                 }
                 button {
                     margin-top: 0.2em;
                     padding: 0.1em;
+                }
+                @media(max-width: 640px) {
+                    div:first-child {width: 26em;}
+                    input {width: 23em;}
+                    input[type=date] {width: 9.7em;}
                 }
             `}</style>
         </div>

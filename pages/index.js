@@ -57,7 +57,7 @@ export default function Home() {
             {loginCheck?
               <LectureList />
             :
-              <Link href={'/user/login'}>로그인을 해주세요</Link>
+              <span><Link href={'/user/login'}>로그인을 해주세요</Link></span>
             }
           </div>
           {/* 로그인했으면 해당일의 강의목록 표시(학생, 교수 둘다) */}
@@ -90,6 +90,7 @@ export default function Home() {
           article:nth-child(1) {display: block;}
           div:nth-child(2) {border-left: none;width:80%}
           div {width: 100%;}
+          span {display: none;}
         }
       `}</style>
     </>

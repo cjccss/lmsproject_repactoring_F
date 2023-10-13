@@ -61,6 +61,9 @@ export default function SideNav() {
                 margin-left: 3em;
                 width: 5%;
             }
+            @media(max-width: 640px) {
+                div {margin-left: 2em;}
+            }
         `}</style>
     </>
     );

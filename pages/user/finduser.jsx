@@ -77,7 +77,7 @@ export default function FindUser() {
                     input[type=email]  {
                         height:3em;
                         width: 97.5%;
-                        margin-top: 0.5em;
+                        margin-top: 0.6em;
                     }
                     input[type=number]::-webkit-outer-spin-button,
                     input[type=number]::-webkit-inner-spin-button {
@@ -102,6 +102,13 @@ export default function FindUser() {
                     p {
                         margin: 0.5em 0 0.5em 0.5em;
                         color: red;
+                    }
+                    @media(max-width: 640px) {
+                        .loginFrm {width: 80%;}
+                        .rememberId {width: 80%;}
+                        .regAccount {width: 80%;}
+                        button {width: 80%;}
+                        label {top: 0px;}
                     }
                 `}</style>
             </form>

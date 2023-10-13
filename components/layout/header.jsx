@@ -54,7 +54,6 @@ export default function Header() {
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
-                    mar
                 }
                 @media(max-width: 640px) {
                     header div {top: 2em;margin-right: 2em;}

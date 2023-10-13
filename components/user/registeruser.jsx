@@ -91,6 +91,13 @@ export default function RegisterUser() {
                     margin: 0.5em 0 0.5em 0.5em;
                     color: red;
                 }
+                @media(max-width: 640px) {
+                    .loginFrm {width: 80%;}
+                    .rememberId {width: 80%;}
+                    .regAccount {width: 80%;}
+                    button {width: 80%;}
+                    label {top: 0px;}
+                }
             `}</style>
         </form>
     );
