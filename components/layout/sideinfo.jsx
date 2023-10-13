@@ -17,8 +17,8 @@ export default function SideNav() {
             {loginCheck?
                 <ul>
                     <Link href=""><li>마이페이지</li></Link>
-                    <Link href=""><li>공지사항</li></Link>
-                    <Link href=""><li>Q&A</li></Link>
+                    <Link href="/board?categoryno=4"><li>공지사항</li></Link>
+                    <Link href="/board?categoryno=5"><li>Q&A</li></Link>
                     <Link href="/board"><li>커뮤니티</li></Link>
                     <Link href=""><li>열람실좌석예약</li></Link>
                 </ul>
@@ -60,6 +60,7 @@ export default function SideNav() {
             div {
                 margin-left: 3em;
                 width: 5%;
+                cursor: pointer;
             }
             @media(max-width: 640px) {
                 div {margin-left: 2em;}

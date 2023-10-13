@@ -4,7 +4,7 @@ export default function LectureList() {
 
     return(
         <div>
-            <span>강의목록</span>
+            <h2>강의목록</h2>
             <ul>
                 <li className="subject">컴퓨터공학개론</li>
                 <li className="subInfo">월 15:00 ~ 17:00 홍길동 교수님</li>
@@ -32,10 +32,6 @@ export default function LectureList() {
                 margin: 2em;
                 display: grid;
                 justify-content: space-around;
-            }
-            span {
-                font-size: 1.6em;
-                font-weight: bold;
             }
             ul {
                 list-style: none;

@@ -27,7 +27,7 @@ export default function Header() {
                         }   
                         {path === "/" ? <SideNav /> : ''}
                     </div>
-                    <span><Link href={'/'}><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교"/></Link></span>
+                    <span><Link href={'/'}><Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교" style={{cursor: 'pointer'}}/></Link></span>
             </header>
             {path === "/" || path === "/user/signin" ? '' : <HeaderNav />}
             <style jsx>{`
@@ -51,7 +51,6 @@ export default function Header() {
                     background-color: gainsboro;
                 }
                 span{
-                    cursor: pointer;
                     display: flex;
                     justify-content: center;
                 }

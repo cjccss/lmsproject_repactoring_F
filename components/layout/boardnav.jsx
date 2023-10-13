@@ -1,14 +1,13 @@
 import Link from 'next/link';
 
-export default function HeaderNav() {
+export default function BoardNav() {
     return(
     <>
         <nav>
             <ul>
-                <Link href="/"><li>HOME</li></Link>
-                <Link href="/board"><li>커뮤니티</li></Link>
-                <Link href="/board?categoryno=4"><li>공지사항</li></Link>
-                <Link href="/board?categoryno=5"><li>Q&A</li></Link>
+                <Link href="/board?categoryno=1"><li>자유게시판</li></Link>
+                <Link href="/board?categoryno=2"><li>중고거래</li></Link>
+                <Link href="/board?categoryno=3"><li>모집합니다</li></Link>
             </ul>
         </nav>
         <style jsx>{`
@@ -17,7 +16,6 @@ export default function HeaderNav() {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: gainsboro;
             }
             ul {
                 margin: 0;
