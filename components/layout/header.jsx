@@ -45,10 +45,10 @@ export default function Header() {
                 div span{
                     float: right;
                     border : 0;
-                    border-radius: 10px;
+                    border-radius: 0.5em;
                     padding: 5px 10px 5px 10px; 
                     box-shadow: 4px 4px 4px;
-                    background-color: gainsboro;
+                    background-color: #e9e9e9;
                 }
                 span{
                     display: flex;

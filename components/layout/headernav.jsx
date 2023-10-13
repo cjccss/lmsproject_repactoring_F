@@ -17,7 +17,7 @@ export default function HeaderNav() {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: gainsboro;
+                background-color: #e9e9e9;
             }
             ul {
                 margin: 0;
