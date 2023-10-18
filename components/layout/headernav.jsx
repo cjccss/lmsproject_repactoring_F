@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import BoardNav from './boardnav';
-import {useRecoilValue } from 'recoil';
-import {categoryNo } from '@/recoil/board';
-import { useEffect} from 'react';
+import {useRecoilState, useRecoilValue } from 'recoil';
+import {boardaction, categoryNo } from '@/recoil/board';
 
 export default function HeaderNav() {
     const path = usePathname();
     const categoryno = useRecoilValue(categoryNo);
+    const [write, setwrite] = useRecoilState(boardaction);
     return(
     <>
         <nav>
-            <ul>
+            <ul onClick={() => setwrite(false)}>
                 <Link href="/"><li>HOME</li></Link>
                 <Link href="/board"><li className={categoryno == undefined&&'active'}>커뮤니티</li></Link>
                 <Link href="/board?categoryno=4"><li className={categoryno == 4&&'active'}>공지사항</li></Link>

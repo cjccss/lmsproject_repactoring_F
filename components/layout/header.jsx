@@ -6,9 +6,11 @@ import {usePathname} from 'next/navigation';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { isLogin } from '@/recoil/user';
+import { boardaction } from '@/recoil/board';
 
 export default function Header() {
     const [loginCheck, setloginCheck] = useRecoilState(isLogin);
+    const [write, setwrite] = useRecoilState(boardaction);
     const path = usePathname();
     return(
         <>
@@ -18,7 +20,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/images/logo.png" />
             </Head>
-            <header>
+            <header onClick={() => setwrite(false)}>
                     <div>
                         {loginCheck?
                             <Link href={'/'}><span>이길동 님</span></Link>

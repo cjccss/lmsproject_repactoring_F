@@ -1,13 +1,14 @@
-import { categoryNo } from '@/recoil/board';
+import { boardaction, categoryNo } from '@/recoil/board';
 import Link from 'next/link';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 export default function BoardNav() {
     const categoryno = useRecoilValue(categoryNo);
+    const [write, setwrite] = useRecoilState(boardaction);
     return(
     <>
         <nav>
-            <ul>
+            <ul onClick={() => setwrite(false)}>
                 <Link href="/board?categoryno=1"><li className={categoryno == 1&&'active'}>자유게시판</li></Link>
                 <Link href="/board?categoryno=2"><li className={categoryno == 2&&'active'}>중고거래</li></Link>
                 <Link href="/board?categoryno=3"><li className={categoryno == 3&&'active'}>모집합니다</li></Link>
