@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import SideNav from './sideinfo';
+import SideNav from './sidenav';
 import HeaderNav from './headernav';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';

@@ -27,7 +27,7 @@ export default function SideNav() {
             }
         </nav>
         <div onClick={() =>setisOpen((prev) => !prev)}>
-            <Image width={35} height={35} src="/images/addmenu.png"/>
+            <Image width={35} height={35} src="/images/addmenu.png" alt='메뉴열기' />
         </div>
         <style jsx>{`
             nav {

@@ -57,7 +57,7 @@ export default function Board() {
         </div>
         <style jsx>{`
             div {
-                margin: 2em;
+                margin: 2em 2em 1em 2em;
             }
             table {
                 width: 100%;

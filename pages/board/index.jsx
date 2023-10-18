@@ -3,28 +3,40 @@ import Board from "@/components/board/board";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Image from "next/image";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { categoryName, categoryNo } from "@/recoil/board";
+import SeoTitle from "@/components/common/seotitle";
+import Link from 'next/link';
 
 export default function BoardHome() {
     const { query } = useRouter();
-    const categoryno = query.categoryno;
-    const category = ["인기게시물","자유게시판","중고거래","모집합니다","공지사항","Q&A"];
-    // useEffect(() => {
-    //     console.log(categoryno);
-    // })
+    const [categoryno, setcategoryno] = useRecoilState(categoryNo);
+    const category = useRecoilValue(categoryName);
+    useEffect(() => {
+        setcategoryno(query.categoryno);     
+        console.log("...게시판제목 "+category);
+        console.log("...게시판제목2 "+categoryno);
+        
+    })
+
     return(
         <>
-            <BoardNav />
+            <SeoTitle title = {category == '인기게시물'?'커뮤니티':category} />
             <h1>
-                {categoryno == undefined?"인기게시물":category[categoryno]}
+                {category}
             </h1>
             <Board />
-            <div>
-                <input type="text" />
-                <button><Image width={18} height={18} src="/images/search.png"/></button>
-                <button>게시글 등록</button>
-            </div>
-            <div className="filterSub">자동완성</div>
-            <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto"}}>페이지 바</div>
+            {categoryno == undefined?'':
+                <>
+                    <div>
+                        <input type="text" />
+                        <button><Image width={18} height={18} src="/images/search.png" alt="검색" /></button>
+                        {categoryno == 4?'':<Link href={'/board/write'}><span>게시글 등록</span></Link>}
+                    </div>
+                    <div className="filterSub">자동완성</div>
+                    <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto"}}>페이지 바</div>
+                </>
+            }
             <style jsx>{`
                 h1 {
                     margin-left: 2em;
@@ -51,8 +63,9 @@ export default function BoardHome() {
                     padding-top: 0.25em;
                     width: 2.575em;
                     height: 2.11em;
+                    cursor: pointer;
                 }
-                button:nth-child(3) {
+                span {
                     float: right;
                     padding: 0.6em;
                     padding-top: 0.45em;

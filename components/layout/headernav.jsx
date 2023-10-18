@@ -1,16 +1,24 @@
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import BoardNav from './boardnav';
+import {useRecoilValue } from 'recoil';
+import {categoryNo } from '@/recoil/board';
+import { useEffect} from 'react';
 
 export default function HeaderNav() {
+    const path = usePathname();
+    const categoryno = useRecoilValue(categoryNo);
     return(
     <>
         <nav>
             <ul>
                 <Link href="/"><li>HOME</li></Link>
-                <Link href="/board"><li>커뮤니티</li></Link>
-                <Link href="/board?categoryno=4"><li>공지사항</li></Link>
-                <Link href="/board?categoryno=5"><li>Q&A</li></Link>
+                <Link href="/board"><li className={categoryno == undefined&&'active'}>커뮤니티</li></Link>
+                <Link href="/board?categoryno=4"><li className={categoryno == 4&&'active'}>공지사항</li></Link>
+                <Link href="/board?categoryno=5"><li className={categoryno == 5&&'active'}>Q&A</li></Link>
             </ul>
-        </nav>
+        </nav>    
+        {path === "/" || path === "/user/signin" ? '' : <BoardNav />}
         <style jsx>{`
             nav {
                 border-bottom: solid 1px black;
@@ -27,6 +35,9 @@ export default function HeaderNav() {
             li {
                 padding: 0.5em 10em;
                 color: black;              
+            }
+            .active {
+                font-weight: bold;
             }
             @media(max-width: 1265px) {
                 li {padding: 0.5em 8em;}
