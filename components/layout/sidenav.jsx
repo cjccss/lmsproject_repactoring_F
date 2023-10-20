@@ -58,12 +58,12 @@ export default function SideNav() {
                 text-align: right;
             }
             div {
-                margin-left: 3em;
+                margin-left: 3rem;
                 width: 5%;
                 cursor: pointer;
             }
             @media(max-width: 640px) {
-                div {margin-left: 2em;}
+                div {margin-left: 2rem;}
             }
         `}</style>
     </>

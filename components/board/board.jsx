@@ -57,7 +57,7 @@ export default function Board() {
         </div>
         <style jsx>{`
             div {
-                margin: 2em 2em 1em 2em;
+                margin: 2rem 2rem 1rem 2rem;
             }
             table {
                 width: 100%;
@@ -71,7 +71,7 @@ export default function Board() {
             }          
             th{
                 text-align:center;
-                padding: 0.3em;
+                padding: 0.3rem;
             }
             thead tr:first-child {
                 border-bottom: 1px solid #bcbcbc;
@@ -83,7 +83,7 @@ export default function Board() {
                 border-bottom:  solid 1px #F5F5F5;
             }
             td {
-                padding: 0.5em;
+                padding: 0.5rem;
                 text-align: center;
             }
         `}</style>

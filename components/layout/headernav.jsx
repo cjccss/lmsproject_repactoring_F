@@ -33,26 +33,26 @@ export default function HeaderNav() {
                 display: flex;
             }
             li {
-                padding: 0.5em 10em;
+                padding: 0.5rem 10rem;
                 color: black;              
             }
             .active {
                 font-weight: bold;
             }
             @media(max-width: 1265px) {
-                li {padding: 0.5em 8em;}
+                li {padding: 0.5rem 8rem;}
             }
             @media(max-width: 1059px) {
-                li {padding: 0.5em 6em;}
+                li {padding: 0.5rem 6rem;}
             }
             @media(max-width: 850px) {
-                li {padding: 0.5em 4em;}
+                li {padding: 0.5rem 4rem;}
             }
             @media(max-width: 640px) {
-                li {padding: 0.5em 2em;}
+                li {padding: 0.5rem 2rem;}
             }
             @media(max-width: 640px) {
-                li {font-size: 0.8em;}
+                li {font-size: 0.8rem;}
             }
         `}</style>
     </>

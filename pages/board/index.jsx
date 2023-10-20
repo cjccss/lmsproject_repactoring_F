@@ -42,16 +42,16 @@ export default function BoardHome() {
             }
             <style jsx>{`
                 h1 {
-                    margin-left: 2em;
+                    margin-left: 2rem;
                 }
                 div {
-                    margin-left: 2em;
-                    margin-right: 2em;
+                    margin-left: 2rem;
+                    margin-right: 2rem;
                 }
                 input {
-                    padding: 0.5em;
+                    padding: 0.5rem;
                     border: 1px solid #bcbcbc;
-                    border-radius: 0.5em;
+                    border-radius: 0.5rem;
                 }
                 input:focus {
                     outline: 1px solid;
@@ -60,29 +60,29 @@ export default function BoardHome() {
                     border: 0;
                     background-color: #e9e9e9;
                     position: relative;
-                    top: 0.3em;
-                    left: -2.71em;
-                    border-radius: 0 0.5em 0.5em 0;
-                    padding-top: 0.25em;
-                    width: 2.575em;
-                    height: 2.11em;
+                    top: 0.3rem;
+                    left: -2.71rem;
+                    border-radius: 0 0.5rem 0.5rem 0;
+                    padding-top: 0.25rem;
+                    width: 2.575rem;
+                    height: 2.11rem;
                     cursor: pointer;
                 }
                 button:nth-child(3) {
                     float: right;
-                    padding: 0.6em;
-                    padding-top: 0.45em;
+                    padding: 0.6rem;
+                    padding-top: 0.45rem;
                     border: none;
-                    border-radius: 0.5em;
+                    border-radius: 0.5rem;
                     background-color: #e9e9e9;
                     cursor: pointer;
                 }
                 /* span {
                     float: right;
-                    padding: 0.6em;
-                    padding-top: 0.45em;
+                    padding: 0.6rem;
+                    padding-top: 0.45rem;
                     border: none;
-                    border-radius: 0.5em;
+                    border-radius: 0.5rem;
                     background-color: #e9e9e9;
                 } */
                 .filterSub{

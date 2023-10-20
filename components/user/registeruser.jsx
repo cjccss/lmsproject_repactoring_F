@@ -58,14 +58,14 @@ export default function RegisterUser() {
                     width: 40%;
                 }
                 h1 {
-                    margin-bottom: 2em;
+                    margin-bottom: 2rem;
                 }
                 input[type=number],
                 input[type=text],
                 input[type=email]  {
-                    height:3em;
+                    height:3rem;
                     width: 97.5%;
-                    margin-top: 0.5em;
+                    margin-top: 0.5rem;
                 }
                 input[type=number]::-webkit-outer-spin-button,
                 input[type=number]::-webkit-inner-spin-button {
@@ -81,14 +81,14 @@ export default function RegisterUser() {
                     margin: 1vh 0;
                     border: none;
                     cursor: pointer;
-                    height: 3.3em;
+                    height: 3.3rem;
                     width: 40%;
                 }
                 button:hover {
                     font-weight: bolder;
                 }
                 p {
-                    margin: 0.5em 0 0.5em 0.5em;
+                    margin: 0.5rem 0 0.5rem 0.5rem;
                     color: red;
                 }
                 @media(max-width: 640px) {

@@ -15,10 +15,10 @@ import LectureList from "@/components/home/lectureList";
 
 const FullCalendarContainer = styled.div`
   .fc .fc-button {
-    padding: 0.2em 0.2em;
+    padding: 0.2rem 0.2rem;
   }
   .fc .fc-toolbar.fc-header-toolbar {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.2rem;
   }
 `;
 

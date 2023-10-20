@@ -29,17 +29,17 @@ export default function LectureList() {
             div {
                 width: 100%;
                 height: 90%;
-                margin: 2em;
+                margin: 2rem;
                 display: grid;
                 justify-content: space-around;
             }
             ul {
                 list-style: none;
-                margin-left: 2em;
+                margin-left: 2rem;
                 width: 100%;
             }
             .subject{
-                font-size: 1.4em;
+                font-size: 1.4rem;
                 font-weight: bold;
             }
             .subInfo{

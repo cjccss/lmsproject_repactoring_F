@@ -36,18 +36,18 @@ export default function Header() {
                 header {
                     height:220px;
                     border-bottom: solid 1px black;
-                    padding-bottom: 1em;
+                    padding-bottom: 1rem;
                 }
                 header div {
                     height: 35px;
                     position: relative;
-                    top: 4em;
-                    margin-right: 3em;
+                    top: 4rem;
+                    margin-right: 3rem;
                 }
                 div span{
                     float: right;
                     border : 0;
-                    border-radius: 0.5em;
+                    border-radius: 0.5rem;
                     padding: 5px 10px 5px 10px; 
                     box-shadow: 4px 4px 4px;
                     background-color: #e9e9e9;
@@ -57,7 +57,7 @@ export default function Header() {
                     justify-content: center;
                 }
                 @media(max-width: 640px) {
-                    header div {top: 2em;margin-right: 2em;}
+                    header div {top: 2rem;margin-right: 2rem;}
                 }
             `}</style>
         </>

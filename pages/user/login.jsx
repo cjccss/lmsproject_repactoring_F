@@ -15,6 +15,10 @@ export default function Login() {
 
     const[loginFrm, setLoginFrm] = useRecoilState(loginInfo);
 
+    const onSubmit = (data) => {
+        console.log(data);
+    }
+
     return(
         <form onSubmit={handleSubmit((e) => setLoginFrm(e))}>
             <SeoTitle title = "로그인" />
@@ -63,13 +67,13 @@ export default function Login() {
                     width: 40%;
                 }
                 h1 {
-                    margin-bottom: 2em;
+                    margin-bottom: 2rem;
                 }
                 input[type=number],
                 input[type=password]  {
-                    height:3em;
+                    height:3rem;
                     width: 97.5%;
-                    margin-top: 0.5em;
+                    margin-top: 0.5rem;
                 }
                 input[type=number]::-webkit-outer-spin-button,
                 input[type=number]::-webkit-inner-spin-button {
@@ -89,7 +93,7 @@ export default function Login() {
                 }
                 .rememberId {
                     width: 40%;
-                    margin: 0.5em 0 0.5em 0;
+                    margin: 0.5rem 0 0.5rem 0;
                 }
                 .findAccount {
                     float: right;
@@ -106,14 +110,14 @@ export default function Login() {
                     margin: 1vh 0;
                     border: none;
                     cursor: pointer;
-                    height: 3.3em;
+                    height: 3.3rem;
                     width: 40%;
                 }
                 button:hover {
                     font-weight: bolder;
                 }
                 p {
-                    margin: 0.5em 0 0.5em 0.5em;
+                    margin: 0.5rem 0 0.5rem 0.5rem;
                     color: red;
                 }
                 @media(max-width: 640px) {
