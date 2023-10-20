@@ -1,12 +1,13 @@
-import { boardaction } from "@/recoil/board";
+import { boardaction, categoryNo } from "@/recoil/board";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function WriteForm() {
     const [write, setwrite] = useRecoilState(boardaction); // true면 글쓰기 open
+    const categoryno = useRecoilValue(categoryNo);
     const [selected, setselected] = useState();
     const [price, setprice] = useState();
     const {
@@ -53,9 +54,16 @@ export default function WriteForm() {
         // useform 유효성검사보다는 submit할때 내용이 있나 없나를 확인해서 alert 띄워줘야 될 것 같다.
         // 온보딩 write 파일 참고 
     }
+
+    useEffect(() => {
+         console.log("...글쓰기 컴포넌트 : "+categoryno);
+        
+    })
+
     return(
         <form onSubmit={handleSubmit(onSubmit, onError)}>
             <div>
+                {/* category에 따라 사용하는 항목만 보여주기 */}
                 <div>
                     제목 <input type="text" maxLength={50}
                             {...register("title", {
@@ -64,22 +72,30 @@ export default function WriteForm() {
                         />
                 </div>
                 <div>
-                    작성자 
-                    <input type="checkbox" id="anony"/>
-                    <label htmlFor="anony">익명</label>
+                    작성자 <span>이길동</span>
+                    {categoryno == 1 || categoryno == 5 ? 
+                        <span>
+                            <input type="checkbox" id="anony"/>
+                            <label htmlFor="anony">익명</label>
+                        </span>
+                    :''}
                 </div>
-                <div>
-                    분류 
-                    <select onChange={(e) => setselected(e.target.value)} value={selected}>
-                        <option value="판매">판매</option>
-                        <option value="구매">구매</option>
-                    </select>
-                </div>
-                <div>
-                    가격 
-                    <input type="text" onChange={addComma} value={price} 
-                        className="inputPrice" maxLength={10}/>원
-                </div>
+                {categoryno == 2 ?  
+                    <>
+                        <div>
+                            분류 
+                            <select onChange={(e) => setselected(e.target.value)} value={selected}>
+                                <option value="판매">판매</option>
+                                <option value="구매">구매</option>
+                            </select>
+                        </div>
+                        <div>
+                            가격 
+                            <input type="text" onChange={addComma} value={price} 
+                                className="inputPrice" maxLength={10}/>원
+                        </div>
+                    </>
+                :''}
             </div>
             <ReactQuill 
                 modules={modules}
@@ -87,12 +103,16 @@ export default function WriteForm() {
                 onChange={(e) => console.log(e)}
             />
             <button type="submit" onClick={onClick}>등록하기</button>
+            {/* 버튼 margin 수정하기 footer와 너무 붙어있음 */}
             <style jsx>{`
                 form {
                     margin: 1rem 4rem 1rem 4rem;
                 }
                 div {
                     margin-bottom: 1rem;
+                }
+                span:nth-child(1) {
+                    margin: 1rem;
                 }
                 input {
                     margin-left: 1rem;
@@ -113,9 +133,13 @@ export default function WriteForm() {
                     margin-left: 2rem !important;
                     text-align: right;
                 }
+                span:nth-child(2) {
+                    position: relative;
+                    top: 0.15rem;
+                }
                 label {
                     position: relative;
-                    top: -0.1rem;
+                    top: -0.15rem;
                 }
                 button {
                     margin-top: 4rem;

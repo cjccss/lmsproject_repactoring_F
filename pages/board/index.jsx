@@ -17,7 +17,7 @@ export default function BoardHome() {
     useEffect(() => {
         setcategoryno(query.categoryno);     
         // console.log("...게시판제목 "+category);
-        // console.log("...게시판제목2 "+categoryno);
+         console.log("...게시판제목2 "+categoryno);
         
     })
 
