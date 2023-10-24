@@ -1,12 +1,15 @@
+import { useState } from "react";
+import Link from 'next/link';
 
 
 export default function LectureList() {
+    const [subno, setsubno] = useState(1);
 
     return(
-        <div>
+        <article>
             <h2>강의목록</h2>
             <ul>
-                <li className="subject">컴퓨터공학개론</li>
+                <Link href={`/lecture?subno=${subno}`}><li className="subject">컴퓨터공학개론</li></Link>
                 <li className="subInfo">월 15:00 ~ 17:00 홍길동 교수님</li>
             </ul>
             <ul>
@@ -26,7 +29,7 @@ export default function LectureList() {
                 <li className="subInfo">금 15:00 ~ 17:00 홍길동 교수님</li>
             </ul>
         <style jsx>{`
-            div {
+            article {
                 width: 100%;
                 height: 90%;
                 margin: 2rem;
@@ -41,12 +44,26 @@ export default function LectureList() {
             .subject{
                 font-size: 1.4rem;
                 font-weight: bold;
+                position: relative;
+            }
+            .subject::after{
+                content: '';
+                display: block;
+                width: 0;
+                height: 0.9rem;
+                position: absolute;
+                bottom: 0px;
+                background: rgba(255, 219, 40, 0.295);
+            }
+            .subject:hover::after{
+                width: 100%;
+                transition: width .5s;
             }
             .subInfo{
                 color: gray;
                 text-align: end;
             }
         `}</style>
-        </div>
+        </article>
     );
 }

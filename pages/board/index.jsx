@@ -10,16 +10,18 @@ import WriteForm from "@/components/board/writeform";
 
 export default function BoardHome() {
     const { query } = useRouter();
+    const clicknav = query.categoryno;
     const [categoryno, setcategoryno] = useRecoilState(categoryNo);
     const category = useRecoilValue(categoryName);
     const [write, setwrite] = useRecoilState(boardaction);
 
     useEffect(() => {
-        setcategoryno(query.categoryno);     
+        console.log("쿼리의 카테고리 넘 "+clicknav);
+        setcategoryno(clicknav);     
         // console.log("...게시판제목 "+category);
-         console.log("...게시판제목2 "+categoryno);
+        console.log("...게시판제목2 "+categoryno);
         
-    })
+    },[])
 
     return(
         <>

@@ -66,12 +66,12 @@ export default function Board() {
             thead{
                 text-align:center;
                 border-bottom: 1px solid #bcbcbc;
-                font-size: 12pt;
                 background-color: #e9e9e9;
             }          
             th{
                 text-align:center;
                 padding: 0.3rem;
+                font-weight: normal;
             }
             thead tr:first-child {
                 border-bottom: 1px solid #bcbcbc;

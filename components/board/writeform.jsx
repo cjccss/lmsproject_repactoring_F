@@ -15,7 +15,6 @@ export default function WriteForm() {
         handleSubmit, 
         formState: {errors},
     } = useForm({mode: 'onBlur'});
-
     const modules = {
         toolbar: {
             container: [
@@ -28,19 +27,18 @@ export default function WriteForm() {
         }
     }
 
-    const addComma = (e) => {
-        let num = e.target.value.replace(/,/g, "");
-        if(isNaN(num)) {       
-            return;
+    const addComma = () => {
+        let num = price?.replace(/,/g, "");
+        if(isNaN(num)) {        
+            return setprice(num?.toString().replace(/[^0-9]/g,""));
         }else{
             return setprice(num?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         }
     }
 
-    const onClick = () => {
-        setwrite(false);
-
-    }
+    useEffect(() => {
+        addComma();
+    },[price])
     
     const onSubmit = (data) => {
         console.log(data);
@@ -55,15 +53,14 @@ export default function WriteForm() {
         // 온보딩 write 파일 참고 
     }
 
-    useEffect(() => {
-         console.log("...글쓰기 컴포넌트 : "+categoryno);
+    // useEffect(() => {
+    //      console.log("...글쓰기 컴포넌트 : "+categoryno);
         
-    })
+    // })
 
     return(
         <form onSubmit={handleSubmit(onSubmit, onError)}>
             <div>
-                {/* category에 따라 사용하는 항목만 보여주기 */}
                 <div>
                     제목 <input type="text" maxLength={50}
                             {...register("title", {
@@ -91,7 +88,7 @@ export default function WriteForm() {
                         </div>
                         <div>
                             가격 
-                            <input type="text" onChange={addComma} value={price} 
+                            <input type="text" onChange={(e) => setprice(e.target.value)} value={price} 
                                 className="inputPrice" maxLength={10}/>원
                         </div>
                     </>
@@ -102,7 +99,7 @@ export default function WriteForm() {
                 style={{ height: '30rem' }}
                 onChange={(e) => console.log(e)}
             />
-            <button type="submit" onClick={onClick}>등록하기</button>
+            <button type="submit" onClick={() => setwrite(false)}>등록하기</button>
             {/* 버튼 margin 수정하기 footer와 너무 붙어있음 */}
             <style jsx>{`
                 form {
@@ -145,6 +142,7 @@ export default function WriteForm() {
                     margin-top: 4rem;
                     float: right;
                 }
+                /* 모바일 대응css 추가하기 */
             `}</style>
         </form>
     );
