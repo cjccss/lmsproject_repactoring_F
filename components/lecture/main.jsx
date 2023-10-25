@@ -7,9 +7,6 @@ import { useRecoilValue } from "recoil";
 
 export default function LectureMain() {
     const lecturenavno = useRecoilValue(lectureNavNo);
-    useEffect(()=>{
-        console.log("강의게시판 nav 번호 : "+lecturenavno);
-    });
 
     return(     
         <section> 

@@ -1,18 +1,35 @@
+import { lectureNavNo } from "@/recoil/lecture";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useRecoilState, useResetRecoilState } from "recoil";
 
 
 export default function LectureNav() {
+    const { query } = useRouter();
+    const clicknav = query.lecturenav;
+    const [lecturenavno, setlecturenavno] = useRecoilState(lectureNavNo);
+    const reset = useResetRecoilState(lectureNavNo);
+
+    // reset 제대로 되는지 확인해보기
+
+    useEffect(() => {
+        console.log("...clicknav : "+clicknav);
+        if(clicknav != undefined)setlecturenavno(clicknav);     
+        console.log("...강의게시판카테고리제목2 "+lecturenavno);
+    },[clicknav]);
+
     return(
         <>
             <nav>
                 <ul>
-                    <Link href="/lecture"><li>강의실 홈</li></Link>
-                    <Link href=""><li>공지사항</li></Link>
-                    <Link href=""><li>강의계획서</li></Link>
-                    <Link href=""><li>강의자료</li></Link>
-                    <Link href=""><li>과제게시판</li></Link>
-                    <Link href=""><li>질문게시판</li></Link>
-                    <Link href=""><li>쪽지시험</li></Link>
+                    <Link href="/lecture"><li onClick={reset}>강의실 홈</li></Link>
+                    <Link href="/lecture?lecturenav=1"><li>공지사항</li></Link>
+                    <Link href="/lecture?lecturenav=2"><li>강의계획서</li></Link>
+                    <Link href="/lecture?lecturenav=3"><li>강의자료</li></Link>
+                    <Link href="/lecture?lecturenav=4"><li>과제게시판</li></Link>
+                    <Link href="/lecture?lecturenav=5"><li>질문게시판</li></Link>
+                    <Link href="/lecture?lecturenav=6"><li>쪽지시험</li></Link>
                 </ul>
             </nav>
             <style jsx>{`

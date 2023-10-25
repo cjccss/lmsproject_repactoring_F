@@ -3,21 +3,35 @@ import { usePathname } from 'next/navigation';
 import BoardNav from './boardnav';
 import {useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import {boardaction, categoryNo } from '@/recoil/board';
-import { subNo } from '@/recoil/lecture';
+import { lectureNavNo } from '@/recoil/lecture';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export default function HeaderNav() {
     const path = usePathname();
-    const categoryno = useRecoilValue(categoryNo);
-    const reset = useResetRecoilState(categoryNo);
-    const subno = useRecoilValue(subNo);
+    const { query } = useRouter();
+    const clicknav = query.categoryno;
+
+    const [categoryno, setcategoryno] = useRecoilState(categoryNo);
+    const resetcategory = useResetRecoilState(categoryNo);
+    const resetlecture = useResetRecoilState(lectureNavNo);
     const [write, setwrite] = useRecoilState(boardaction);
     
+    const reset = () => {
+        resetcategory();
+        resetlecture();
+    }
+
+    useEffect(() =>{
+        if(clicknav != undefined)setcategoryno(clicknav);
+    },[clicknav]);
+
     return(
     <>
         <nav>
             <ul onClick={() => setwrite(false)}>
                 <Link href="/"><li onClick={reset}>HOME</li></Link>
-                <Link href="/board"><li className={categoryno == undefined&&'active'}>커뮤니티</li></Link>
+                <Link href="/board"><li className={path == "/board"&&!clicknav &&'active'}>커뮤니티</li></Link>
                 <Link href="/board?categoryno=4"><li className={categoryno == 4&&'active'}>공지사항</li></Link>
                 <Link href="/board?categoryno=5"><li className={categoryno == 5&&'active'}>Q&A</li></Link>
             </ul>

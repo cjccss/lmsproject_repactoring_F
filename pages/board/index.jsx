@@ -1,27 +1,14 @@
 import Board from "@/components/board/board";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { boardaction, categoryName, categoryNo } from "@/recoil/board";
 import SeoTitle from "@/components/common/seotitle";
-import Link from 'next/link';
 import WriteForm from "@/components/board/writeform";
 
 export default function BoardHome() {
-    const { query } = useRouter();
-    const clicknav = query.categoryno;
-    const [categoryno, setcategoryno] = useRecoilState(categoryNo);
+    const categoryno = useRecoilValue(categoryNo);
     const category = useRecoilValue(categoryName);
     const [write, setwrite] = useRecoilState(boardaction);
-
-    useEffect(() => {
-        console.log("쿼리의 카테고리 넘 "+clicknav);
-        setcategoryno(clicknav);     
-        // console.log("...게시판제목 "+category);
-        console.log("...게시판제목2 "+categoryno);
-        
-    },[])
 
     return(
         <>

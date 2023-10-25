@@ -4,15 +4,26 @@ import SideNav from './sidenav';
 import HeaderNav from './headernav';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
-import { useRecoilState, useResetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { isLogin } from '@/recoil/user';
 import { boardaction, categoryNo } from '@/recoil/board';
+import { lectureNavNo } from '@/recoil/lecture';
+import { useEffect } from 'react';
 
 export default function Header() {
     const [loginCheck, setloginCheck] = useRecoilState(isLogin);
     const [write, setwrite] = useRecoilState(boardaction);
-    const reset = useResetRecoilState(categoryNo);
+    const resetcategory = useResetRecoilState(categoryNo);
+    const resetlecture = useResetRecoilState(lectureNavNo);
     const path = usePathname();
+
+    const categoryno = useRecoilValue(categoryNo);
+
+    const reset = () => {
+        resetcategory();
+        resetlecture();
+    }
+
     return(
         <>
             <Head>
@@ -30,8 +41,8 @@ export default function Header() {
                         }   
                         {path === "/" ? <SideNav /> : ''}
                     </div>
-                    <span><Link href={'/'}   onClick={reset}>
-                        <Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교" style={{cursor: 'pointer'}}/>
+                    <span><Link href={'/'}>
+                        <Image width={300} height={150} src="/images/logo.png" alt="쌍용대학교" style={{cursor: 'pointer'}} onClick={reset}/>
                     </Link></span>
             </header>
             {path === "/" || path === "/user/signin" ? '' : <HeaderNav />}
