@@ -17,7 +17,7 @@ export default function BoardHome() {
                 {category}
             </h1>
             {!write?<Board />:<WriteForm />}
-            {categoryno == undefined||write?'':
+            {categoryno == 0||write?'':
                 <>
                     <div>
                         <input type="text" />

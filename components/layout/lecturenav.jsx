@@ -16,7 +16,6 @@ export default function LectureNav() {
     useEffect(() => {
         console.log("...clicknav : "+clicknav);
         if(clicknav != undefined)setlecturenavno(clicknav);     
-        console.log("...강의게시판카테고리제목2 "+lecturenavno);
     },[clicknav]);
 
     return(

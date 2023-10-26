@@ -1,64 +1,48 @@
-import {usePathname} from 'next/navigation';
+import { lectureNavName } from "@/recoil/lecture";
+import { useRecoilValue } from "recoil";
 
 export default function LectureBoard() {
-    const path = usePathname();
+    const lecturenavname = useRecoilValue(lectureNavName);
 
     return(
-    <>
-        <div id="mainBoard">       
-            <table id = "MainBoard">
-                <colgroup>
-                    <col width="*" />
-                    {path == "/"&&<col width="*" />}
-                    <col width="50%" />
-                    <col width="*" />
-                    <col width="*" />
-                </colgroup>
+    <article>      
+        <h4>| {lecturenavname}</h4>
+        {/* 공지사항, 강의자료, 질문게시판에 사용하기 */}
+            <table>
                 <thead>
-                    <tr id="menu">
-                        <th>No.</th>
-                        {path == "/"&&<th>분류</th>}
+                    <tr>
                         <th>제목</th>
-                        <th>추천수</th>
-                        <th>작성자</th>
-                        {path !== "/"&&<th>작성일자</th>}
-                        {path !== "/"&&<th>조회수</th>}
+                        <th>작성일자</th>
                     </tr>
                 </thead>
-                <tbody id="boardDisplay" >
+                <tbody>
                     <tr>
-                        <td>1</td>
-                        {path == "/"&&<td>자유게시판</td>}
                         <td>안녕하세요</td>
-                        <td>1</td>
-                        <td>일길동</td>
-                        {path !== "/"&&<td>2023-10-13</td>}
-                        {path !== "/"&&<td>3</td>}
+                        <td>2023-10-13</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        {path == "/"&&<td>중고거래</td>}
                         <td>배고파요</td>
-                        <td>0</td>
-                        <td>이길동</td>
-                        {path !== "/"&&<td>2023-10-13</td>}
-                        {path !== "/"&&<td>0</td>}
+                        <td>2023-10-13</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        {path == "/"&&<td>모집합니다</td>}
                         <td>잘가요</td>
-                        <td>3</td>
-                        <td>삼길동</td>
-                        {path !== "/"&&<td>2023-10-13</td>}
-                        {path !== "/"&&<td>3</td>}
+                        <td>2023-10-13</td>
+                    </tr>
+                    <tr>
+                        <td>잘가요</td>
+                        <td>2023-10-13</td>
+                    </tr>
+                    <tr>
+                        <td>잘가요</td>
+                        <td>2023-10-13</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+            <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto", marginTop: "2rem"}}>페이지 바</div>
         <style jsx>{`
-            div {
-                margin: 2rem 2rem 1rem 2rem;
+            article {
+                margin: 1rem;
+                width: 100%;
             }
             table {
                 width: 100%;
@@ -88,6 +72,6 @@ export default function LectureBoard() {
                 text-align: center;
             }
         `}</style>
-    </>
+    </article>
     );
 }

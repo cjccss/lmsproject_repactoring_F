@@ -9,8 +9,7 @@ export default function LectureMain() {
     const lecturenavno = useRecoilValue(lectureNavNo);
 
     return(     
-        <section> 
-            <LectureNav />
+        <> 
             <div className="contents">
                 <article>
                     <h4>| <Link href="">공지사항</Link></h4>
@@ -91,16 +90,11 @@ export default function LectureMain() {
                 </article>  
             </div>
             <style jsx>{`
-                section {
-                    display: flex;
-                    align-items: center;
-
-                }
                 h4 {
                     text-align: left;
                 }
                 .contents {
-                    margin: 2%;
+                    margin: 1rem;
                     width: 100%;
                 }
                 article:nth-child(2) {
@@ -147,6 +141,6 @@ export default function LectureMain() {
                     text-align: center;
                 }
             `}</style>
-        </section>
+        </>
     );
 }

@@ -15,3 +15,9 @@ export const isLogin = atom({
     default: true,
     // sql연동 후 default: false로 바꾸기
 })
+
+export const level = atom({
+    key: "level",
+    default: 0,
+    //0:admin 1:professor 2:student
+})
