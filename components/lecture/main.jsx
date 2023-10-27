@@ -12,7 +12,7 @@ export default function LectureMain() {
         <> 
             <div className="contents">
                 <article>
-                    <h4>| <Link href="">공지사항</Link></h4>
+                    <h3>| <Link href="/lecture?lecturenav=1">공지사항</Link></h3>
                     <table>
                         <thead>
                             <tr>
@@ -38,7 +38,7 @@ export default function LectureMain() {
                 </article>
                 <article>
                     <div>
-                        <h4>| <Link href="">강의자료</Link></h4>
+                        <h3>| <Link href="/lecture?lecturenav=3">강의자료</Link></h3>
                         <table>
                             <thead>
                                 <tr>
@@ -63,7 +63,7 @@ export default function LectureMain() {
                         </table>
                     </div>
                     <div>
-                        <h4>| <Link href="">질문게시판</Link></h4>
+                        <h3>| <Link href="/lecture?lecturenav=5">질문게시판</Link></h3>
                         <table >
                             <thead>
                                 <tr>
@@ -90,12 +90,15 @@ export default function LectureMain() {
                 </article>  
             </div>
             <style jsx>{`
-                h4 {
+                h3 {
                     text-align: left;
                 }
                 .contents {
                     margin: 1rem;
                     width: 100%;
+                }
+                article {
+                    margin-bottom: 5rem;
                 }
                 article:nth-child(2) {
                     display: flex;

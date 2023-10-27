@@ -10,9 +10,13 @@ export default function LectureBoard() {
 
     return(
     <article>      
-        <h4>| {lecturenavname}</h4>
+        <h3>| {lecturenavname}</h3>
         {/* 공지사항, 강의자료, 질문게시판에 사용하기 */}
             <table>
+                <colgroup>
+                    <col width="70%" />
+                    <col width="*" />  
+                </colgroup>
                 <thead>
                     <tr>
                         <th>제목</th>

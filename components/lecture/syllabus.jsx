@@ -1,9 +1,12 @@
+import { level } from "@/recoil/user";
+import { useRecoilValue } from "recoil";
 
 
 export default function Syllabus() {
+    const levelno = useRecoilValue(level);
     return(
         <article>
-            <h4>| 강의계획서</h4>
+            <h3>| 강의계획서</h3>
             <h4>기본정보</h4>
             <table>
                 <tr>
@@ -45,35 +48,41 @@ export default function Syllabus() {
             </table>
             <h4>주차별 강의 계획</h4>
             <table>
-                    <tr>
-                        <th>주차</th>
-                        <th>수업내용</th>
-                    </tr>
-                    <tr>
-                        <td>1주차(2023.10.02 ~ 2023.10.06)</td>
-                        <td>컴퓨터 알아보자</td>
-                    </tr>
-                    <tr>
-                        <td>2주차(2023.10.09 ~ 2023.10.13)</td>
-                        <td>개론 구경하기</td>
-                    </tr>
-                    <tr>
-                        <td>3주차(2023.10.16 ~ 2023.10.20)</td>
-                        <td>컴퓨터와 개론</td>
-                    </tr>
-                    <tr>
-                        <td>4주차(2023.10.23 ~ 2023.10.27)</td>
-                        <td>알아보고 구경하자</td>
-                    </tr>
-                    <tr>
-                        <td>5주차(2023.10.30 ~ 2023.10.31)</td>
-                        <td>잘가요</td>
-                    </tr>
+                <colgroup>
+                    <col width="*" />
+                    <col width="60%" />
+                </colgroup>
+                <tr>
+                    <th>주차</th>
+                    <th>수업내용</th>
+                </tr>
+                <tr>
+                    <td>1주차(2023.10.02 ~ 2023.10.06)</td>
+                    <td>컴퓨터 알아보자컴퓨터 알아보자Request textDocument/definition failed</td>
+                </tr>
+                <tr>
+                    <td>2주차(2023.10.09 ~ 2023.10.13)</td>
+                    <td>개론 구경하기컴퓨터 알아보자</td>
+                </tr>
+                <tr>
+                    <td>3주차(2023.10.16 ~ 2023.10.20)</td>
+                    <td>컴퓨터와 개론컴퓨터 알아보자</td>
+                </tr>
+                <tr>
+                    <td>4주차(2023.10.23 ~ 2023.10.27)</td>
+                    <td>알아보고 구경하자컴퓨터 알아보자</td>
+                </tr>
+                <tr>
+                    <td>5주차(2023.10.30 ~ 2023.10.31)</td>
+                    <td>Request textDocument/definition failed 잘가요</td>
+                </tr>
             </table>
-            <div>
-                <button>등록</button>
-                <button>수정</button>			
-            </div>
+            {levelno != 2&&
+                <div>
+                    <button>등록</button>
+                    <button>수정</button>			
+                </div>
+            }
             <style jsx>{`
                 article {
                     margin: 1rem;
@@ -83,6 +92,7 @@ export default function Syllabus() {
                     width: 100%;
                     border-collapse: collapse;
                     border-top: 2px solid black;
+                    margin-bottom: 5rem;
                 }
                 thead{
                     text-align:center;
@@ -110,6 +120,7 @@ export default function Syllabus() {
                     background-color: #e9e9e9;
                     cursor: pointer;
                     margin-top: 1rem;
+                    margin-right: 1rem;
                 }
 
                 
