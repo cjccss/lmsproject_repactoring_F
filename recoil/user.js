@@ -18,6 +18,6 @@ export const isLogin = atom({
 
 export const level = atom({
     key: "level",
-    default: 0,
+    default: 1,
     //0:admin 1:professor 2:student
 })

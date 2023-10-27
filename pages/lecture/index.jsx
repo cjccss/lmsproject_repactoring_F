@@ -2,6 +2,7 @@ import SeoTitle from "@/components/common/seotitle";
 import LectureNav from "@/components/layout/lecturenav";
 import LectureBoard from "@/components/lecture/lectureboard";
 import LectureMain from "@/components/lecture/main";
+import Syllabus from "@/components/lecture/syllabus";
 import { lectureNavName, lectureNavNo } from "@/recoil/lecture";
 import { level } from "@/recoil/user";
 import { useRouter } from "next/router";
@@ -19,36 +20,43 @@ export default function LectureHome() {
     // 메인화면에서 강의제목 클릭 -> subno 넘어옴
 
     useEffect(() => {
-        if(query.subno)setlecture(query.subno)
+        // if(query.subno)setlecture(query.subno)
+        if(query.subno)setlecture('컴퓨터공학개론')
     })
-
+    // const currlecturenav = [<LectureMain />,<LectureBoard />,<syllabus />,<LectureBoard />,'',<LectureBoard />,'']
+    const currlecturenav = (lecturenavno) => {
+        console.log(lecturenavno);
+        switch (lecturenavno) {
+            case 0:
+                return <LectureMain />;
+            case "1":
+            case "3":
+            case "5":
+                return <LectureBoard />;
+            case "2":
+                return <Syllabus />;
+            case "4":
+            case "6":
+                console.log("스위치 사,육!");
+                return; 
+        }
+    }
     return(     
         <> 
             <SeoTitle title = "강의게시판" />
-            <h1>강의제목{lecutre}</h1>
+            <h1>{lecutre}&nbsp; 카테고리번호{lecturenavno}&nbsp; 레벨번호{levelno}</h1>
             <section>
+                {/* 0:강의실 홈 1:공지사항 2:강의계획서 3:강의자료 4:과제게시판 5:질문게시판 6:쪽지시험 */}
                 <LectureNav />
-                {lecturenavno == 0?<LectureMain />:<LectureBoard />}
+                {currlecturenav(lecturenavno)}
+                
             </section>
-            {/* 교수일 경우 강의계획서 제외 게시글 등록 가능  학생일 경우 질문게시판만 게시글 등록 가능 */}
-            {/* 0:admin 1:professor 2:student */}
-            {levelno == 2&&
-                lecturenavno == 4?'':<button onClick={()=>setwrite(true)}>게시글 등록</button>}
             <style jsx>{`
                 h1{
                     text-align: center;
                 }
                 section {
                     display: flex;
-                }
-                button {
-                    float: right;
-                    padding: 0.6rem;
-                    padding-top: 0.45rem;
-                    border: none;
-                    border-radius: 0.5rem;
-                    background-color: #e9e9e9;
-                    cursor: pointer;
                 }
             `}</style>
         </>

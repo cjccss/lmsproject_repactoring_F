@@ -1,8 +1,12 @@
-import { lectureNavName } from "@/recoil/lecture";
+import { lectureNavName, lectureNavNo } from "@/recoil/lecture";
+import { level } from "@/recoil/user";
 import { useRecoilValue } from "recoil";
 
 export default function LectureBoard() {
+    const lecturenavno= useRecoilValue(lectureNavNo);
     const lecturenavname = useRecoilValue(lectureNavName);
+    const levelno = useRecoilValue(level);
+
 
     return(
     <article>      
@@ -38,6 +42,11 @@ export default function LectureBoard() {
                     </tr>
                 </tbody>
             </table>
+            {levelno == 2?
+                lecturenavno == 5&&<button onClick={()=>setwrite(true)}>게시글 등록</button>
+                :
+                lecturenavno == 5?'':<button onClick={()=>setwrite(true)}>게시글 등록</button>
+            }
             <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto", marginTop: "2rem"}}>페이지 바</div>
         <style jsx>{`
             article {
@@ -70,6 +79,16 @@ export default function LectureBoard() {
             td {
                 padding: 0.5rem;
                 text-align: center;
+            }
+            button {
+                float: right;
+                padding: 0.6rem;
+                padding-top: 0.45rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: #e9e9e9;
+                cursor: pointer;
+                margin-top: 1rem;
             }
         `}</style>
     </article>

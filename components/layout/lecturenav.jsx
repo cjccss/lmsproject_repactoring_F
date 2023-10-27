@@ -14,7 +14,6 @@ export default function LectureNav() {
     // reset 제대로 되는지 확인해보기
 
     useEffect(() => {
-        console.log("...clicknav : "+clicknav);
         if(clicknav != undefined)setlecturenavno(clicknav);     
     },[clicknav]);
 
