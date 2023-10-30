@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import BoardNav from './boardnav';
-import {useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
+import {useRecoilState, useResetRecoilState } from 'recoil';
 import {boardaction, categoryNo } from '@/recoil/board';
-import { lectureNavNo } from '@/recoil/lecture';
+import { lectureNavNo, lectureaction } from '@/recoil/lecture';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -15,11 +15,16 @@ export default function HeaderNav() {
     const [categoryno, setcategoryno] = useRecoilState(categoryNo);
     const resetcategory = useResetRecoilState(categoryNo);
     const resetlecture = useResetRecoilState(lectureNavNo);
-    const [write, setwrite] = useRecoilState(boardaction);
+    const [writeB, setwriteB] = useRecoilState(boardaction);
+    const [writeL, setwriteL] = useRecoilState(lectureaction);
     
     const reset = () => {
         resetcategory();
         resetlecture();
+    }
+    const closeWrite = () => {
+        setwriteB(false);
+        setwriteL(false);
     }
 
     useEffect(() =>{
@@ -29,7 +34,7 @@ export default function HeaderNav() {
     return(
     <>
         <nav>
-            <ul onClick={() => setwrite(false)}>
+            <ul onClick={closeWrite}>
                 <Link href="/"><li onClick={reset}>HOME</li></Link>
                 <Link href="/board"><li className={path == "/board"&&!clicknav &&'active'}>커뮤니티</li></Link>
                 <Link href="/board?categoryno=4"><li className={categoryno == 4&&'active'}>공지사항</li></Link>

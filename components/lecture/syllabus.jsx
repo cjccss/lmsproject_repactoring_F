@@ -77,7 +77,7 @@ export default function Syllabus() {
                     <td>Request textDocument/definition failed 잘가요</td>
                 </tr>
             </table>
-            {levelno != 2&&
+            {levelno == 1&&
                 <div>
                     <button>등록</button>
                     <button>수정</button>			
@@ -88,11 +88,13 @@ export default function Syllabus() {
                     margin: 1rem;
                     width: 100%;
                 }
+                table:nth-child(3) {
+                    margin-bottom: 5rem;
+                }
                 table {
                     width: 100%;
                     border-collapse: collapse;
-                    border-top: 2px solid black;
-                    margin-bottom: 5rem;
+                    border-top: 2px solid black;  
                 }
                 thead{
                     text-align:center;
@@ -119,11 +121,9 @@ export default function Syllabus() {
                     border-radius: 0.5rem;
                     background-color: #e9e9e9;
                     cursor: pointer;
-                    margin-top: 1rem;
+                    margin-top: 2rem;
                     margin-right: 1rem;
                 }
-
-                
             `}</style>
         </article>
     );

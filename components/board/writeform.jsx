@@ -41,7 +41,8 @@ export default function WriteForm() {
     },[price])
     
     const onSubmit = (data) => {
-        console.log(data);
+        setwrite(false);
+        console.log("결과"+data);
     }
 
     const onError = (errors) => {
@@ -99,11 +100,11 @@ export default function WriteForm() {
                 style={{ height: '30rem' }}
                 onChange={(e) => console.log(e)}
             />
-            <button type="submit" onClick={() => setwrite(false)}>등록하기</button>
+            <button type="submit">등록하기</button>
             {/* 버튼 margin 수정하기 footer와 너무 붙어있음 */}
             <style jsx>{`
                 form {
-                    margin: 1rem 4rem 1rem 4rem;
+                    margin: 1rem 4rem 10rem 4rem;
                 }
                 div {
                     margin-bottom: 1rem;
@@ -119,7 +120,7 @@ export default function WriteForm() {
                     padding: 0.3rem;
                 }
                 input[type=text] {
-                    width: 66rem;
+                    width: 60rem;
                     border: 1px solid #bcbcbc;
                     padding: 0.5rem;
                     margin-left: 1.6rem;
@@ -139,8 +140,14 @@ export default function WriteForm() {
                     top: -0.15rem;
                 }
                 button {
-                    margin-top: 4rem;
                     float: right;
+                    padding: 0.6rem;
+                    padding-top: 0.45rem;
+                    border: none;
+                    border-radius: 0.5rem;
+                    background-color: #e9e9e9;
+                    cursor: pointer;
+                    margin-top: 4rem;
                 }
                 /* 모바일 대응css 추가하기 */
             `}</style>

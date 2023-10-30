@@ -7,23 +7,28 @@ import Link from 'next/link';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { isLogin } from '@/recoil/user';
 import { boardaction, categoryNo } from '@/recoil/board';
-import { lectureNavNo } from '@/recoil/lecture';
+import { lectureNavNo, lectureaction } from '@/recoil/lecture';
 import { useEffect } from 'react';
 
 export default function Header() {
-    const [loginCheck, setloginCheck] = useRecoilState(isLogin);
-    const [write, setwrite] = useRecoilState(boardaction);
-    const resetcategory = useResetRecoilState(categoryNo);
-    const resetlecture = useResetRecoilState(lectureNavNo);
     const path = usePathname();
 
+    const [loginCheck, setloginCheck] = useRecoilState(isLogin);
+    const [writeB, setwriteB] = useRecoilState(boardaction);
+    const [writeL, setwriteL] = useRecoilState(lectureaction);
+    const resetcategory = useResetRecoilState(categoryNo);
+    const resetlecture = useResetRecoilState(lectureNavNo);
     const categoryno = useRecoilValue(categoryNo);
 
     const reset = () => {
         resetcategory();
         resetlecture();
     }
-
+    const closeWrite = () => {
+        setwriteB(false);
+        setwriteL(false);
+    }
+    
     return(
         <>
             <Head>
@@ -32,7 +37,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/images/logo.png"/>
             </Head>
-            <header onClick={() => setwrite(false)}>
+            <header onClick={closeWrite}>
                     <div>
                         {loginCheck?
                             <Link href={'/'}><span>이길동 님</span></Link>

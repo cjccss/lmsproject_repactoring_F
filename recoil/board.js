@@ -14,6 +14,7 @@ export const categoryName = selector ({
     },
 });
 
+// 글쓰기 on/off
 export const boardaction = atom({
     key: 'boardaction',
     default: false,

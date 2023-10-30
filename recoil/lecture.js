@@ -19,3 +19,9 @@ export const lectureNavName = selector ({
         return lectureNav[no-1];
     },
 });
+
+// 글쓰기 on/off
+export const lectureaction = atom({
+    key: 'lectureaction',
+    default: false,
+});
