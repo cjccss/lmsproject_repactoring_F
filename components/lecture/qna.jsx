@@ -1,9 +1,20 @@
+<<<<<<< HEAD
+=======
+import { lectureNavNo } from "@/recoil/lecture";
+>>>>>>> 5abf23fdd2e8826f870a61b89180c20a98ef2bd7
 import { level } from "@/recoil/user";
 import { useRecoilValue } from "recoil";
 
 export default function LectureQnA() {
+<<<<<<< HEAD
     const levelno = useRecoilValue(level);
 
+=======
+    const lecturenavno= useRecoilValue(lectureNavNo);
+    const levelno = useRecoilValue(level);
+
+
+>>>>>>> 5abf23fdd2e8826f870a61b89180c20a98ef2bd7
     return(
     <article>      
         <h3>| 질문게시판</h3>
@@ -41,7 +52,15 @@ export default function LectureQnA() {
                     </tr>
                 </tbody>
             </table>
+<<<<<<< HEAD
             {levelno == 2&&<button onClick={()=>setwrite(true)}>게시글 등록</button>}
+=======
+            {levelno == 2?
+                lecturenavno == 5&&<button onClick={()=>setwrite(true)}>게시글 등록</button>
+                :
+                lecturenavno == 5?'':<button onClick={()=>setwrite(true)}>게시글 등록</button>
+            }
+>>>>>>> 5abf23fdd2e8826f870a61b89180c20a98ef2bd7
             <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto", marginTop: "2rem"}}>페이지 바</div>
         <style jsx>{`
             article {

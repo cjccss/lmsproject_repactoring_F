@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { level } from "@/recoil/user";
 import { useRecoilValue } from "recoil";
 
@@ -89,4 +90,14 @@ export default function LectureTask() {
             `}</style>
         </article>
         );
+=======
+
+
+export default function LectureTask() {
+    return(
+        <>
+            <h3>| 과제게시판</h3>
+        </>
+    );
+>>>>>>> 5abf23fdd2e8826f870a61b89180c20a98ef2bd7
 }

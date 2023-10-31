@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import { lectureaction } from "@/recoil/lecture";
 import { level } from "@/recoil/user";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function LectureNotice() {
     const [write, setwrite] = useRecoilState(lectureaction);
+=======
+import { lectureNavNo } from "@/recoil/lecture";
+import { level } from "@/recoil/user";
+import { useRecoilValue } from "recoil";
+
+export default function LectureNotice() {
+    const lecturenavno= useRecoilValue(lectureNavNo);
+>>>>>>> 5abf23fdd2e8826f870a61b89180c20a98ef2bd7
     const levelno = useRecoilValue(level);
 
     return(
@@ -43,7 +52,15 @@ export default function LectureNotice() {
                     </tr>
                 </tbody>
             </table>
+<<<<<<< HEAD
             {levelno == 1&&<button onClick={()=>setwrite(true)}>게시글 등록</button>}
+=======
+            {levelno == 2?
+                lecturenavno == 5&&<button onClick={()=>setwrite(true)}>게시글 등록</button>
+                :
+                lecturenavno == 5?'':<button onClick={()=>setwrite(true)}>게시글 등록</button>
+            }
+>>>>>>> 5abf23fdd2e8826f870a61b89180c20a98ef2bd7
             <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto", marginTop: "2rem"}}>페이지 바</div>
         <style jsx>{`
             article {
