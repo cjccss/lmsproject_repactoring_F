@@ -1,16 +1,9 @@
-import { level } from "@/recoil/user";
-import { useRouter } from "next/router";
-import { useRecoilValue } from "recoil";
 
 
-export default function Syllabus() {
-    const levelno = useRecoilValue(level);
-    const router = useRouter();
-
+export default function SyllabusWrite() {
     return(
-        <article>
-            <h3>| 강의계획서</h3>
-            <h4>기본정보</h4>
+        <form>
+        <h4>기본정보</h4>
             <table>
                 <tr>
                     <th>교과목명</th>
@@ -80,12 +73,7 @@ export default function Syllabus() {
                     <td>Request textDocument/definition failed 잘가요</td>
                 </tr>
             </table>
-            {levelno == 1&&
-                <div>
-                    <button onClick={() => router.push('/lecture/syllabuswrite')}>등록</button>
-                    <button>수정</button>			
-                </div>
-            }
+                <button>완료</button>		
             <style jsx>{`
                 article {
                     margin: 1rem;
@@ -128,6 +116,6 @@ export default function Syllabus() {
                     margin-right: 1rem;
                 }
             `}</style>
-        </article>
+        </form>
     );
 }

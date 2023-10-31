@@ -33,12 +33,13 @@ export default function LectureNav() {
             </nav>
             <style jsx>{`
                 nav {
-                    width: 16rem;
+                    width: 14rem;
                     text-align: left;
+                    margin-top: 5rem;
                 }
                 ul {
                     padding: 0.5rem;
-                    margin: 0 1rem 0 1rem;
+                    margin-left: 1rem;
                     background-color: #e9e9e9;
                 }
                 li {

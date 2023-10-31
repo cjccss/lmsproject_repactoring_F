@@ -37,10 +37,11 @@ export default function LectureHome() {
     return(     
         <> 
             <SeoTitle title = "강의게시판" />
-            <h1>{lecutre}</h1>
+
             <section>
+                <h1>{lecutre}</h1>
                 {/* 0:강의실 홈 1:공지사항 2:강의계획서 3:강의자료 4:과제게시판 5:질문게시판 6:쪽지시험 */}
-                <LectureNav />
+                {/* <LectureNav /> */}
                 {!write?currlecturenav[lecturenavno]:<LectureWrite />}
             </section>
             <style jsx>{`
@@ -49,7 +50,9 @@ export default function LectureHome() {
                     margin-bottom: 4rem;
                 }
                 section {
-                    display: flex;
+                    display: block;
+                    width: 100%;
+                    margin: 0 2rem auto;
                 }
             `}</style>
         </>
