@@ -4,11 +4,12 @@ import BoardNav from './boardnav';
 import {useRecoilState, useResetRecoilState } from 'recoil';
 import {boardaction, categoryNo } from '@/recoil/board';
 import { lectureNavNo, lectureaction } from '@/recoil/lecture';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function HeaderNav() {
     const path = usePathname();
+    const lootpath = path.split('/')[1];
     const { query } = useRouter();
     const clicknav = query.categoryno;
 
@@ -16,21 +17,25 @@ export default function HeaderNav() {
     const resetcategory = useResetRecoilState(categoryNo);
     const resetlecture = useResetRecoilState(lectureNavNo);
     const [writeB, setwriteB] = useRecoilState(boardaction);
-    const [writeL, setwriteL] = useRecoilState(lectureaction);
-    
+
+    const [lecutre, setlecture] = useState('');
+
     const reset = () => {
         resetcategory();
         resetlecture();
     }
     const closeWrite = () => {
         setwriteB(false);
-        setwriteL(false);
     }
 
     useEffect(() =>{
         if(clicknav != undefined)setcategoryno(clicknav);
     },[clicknav]);
 
+    useEffect(() => {
+        // if(query.subno)setlecture(query.subno)
+        if(query.subno)setlecture('컴퓨터공학개론')
+    })  
     return(
     <>
         <nav>
@@ -41,7 +46,8 @@ export default function HeaderNav() {
                 <Link href="/board?categoryno=5"><li className={categoryno == 5&&'active'}>Q&A</li></Link>
             </ul>
         </nav>    
-        {path === "/board" ? <BoardNav /> : ''}
+        {lootpath == "board"&&<BoardNav />}
+        {lootpath == "lecture"&&<h1>{lecutre}</h1>}
         <style jsx>{`
             nav {
                 border-bottom: solid 1px black;
@@ -61,6 +67,10 @@ export default function HeaderNav() {
             }
             .active {
                 font-weight: bold;
+            }
+            h1{
+                text-align: center;
+                margin-top: 3rem;
             }
             @media(max-width: 1265px) {
                 li {padding: 0.5rem 8rem;}

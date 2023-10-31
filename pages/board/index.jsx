@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { boardaction, categoryName, categoryNo } from "@/recoil/board";
 import SeoTitle from "@/components/common/seotitle";
-import WriteForm from "@/components/board/writeform";
+import WriteForm from "@/components/board/writeformB";
 
 export default function BoardHome() {
     const categoryno = useRecoilValue(categoryNo);

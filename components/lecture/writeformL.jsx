@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 
-export default function LectureWrite() {
+export default function WriteFormL() {
     const [write, setwrite] = useRecoilState(lectureaction);
     const lecturenavno= useRecoilValue(lectureNavNo);
 

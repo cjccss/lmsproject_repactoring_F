@@ -1,10 +1,12 @@
 import { lectureaction } from "@/recoil/lecture";
 import { level } from "@/recoil/user";
+import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function LectureNotice() {
     const [write, setwrite] = useRecoilState(lectureaction);
     const levelno = useRecoilValue(level);
+    const router = useRouter();
 
     return(
     <article>      
@@ -43,7 +45,7 @@ export default function LectureNotice() {
                     </tr>
                 </tbody>
             </table>
-            {levelno == 1&&<button onClick={()=>setwrite(true)}>게시글 등록</button>}
+            {levelno == 1&&<button onClick={() => router.push('/lecture/writeL')}>게시글 등록</button>}
             <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto", marginTop: "2rem"}}>페이지 바</div>
         <style jsx>{`
             article {

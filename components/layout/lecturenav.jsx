@@ -35,7 +35,6 @@ export default function LectureNav() {
                 nav {
                     width: 14rem;
                     text-align: left;
-                    margin-top: 5rem;
                 }
                 ul {
                     padding: 0.5rem;

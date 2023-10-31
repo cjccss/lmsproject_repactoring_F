@@ -15,7 +15,6 @@ export default function Header() {
 
     const [loginCheck, setloginCheck] = useRecoilState(isLogin);
     const [writeB, setwriteB] = useRecoilState(boardaction);
-    const [writeL, setwriteL] = useRecoilState(lectureaction);
     const resetcategory = useResetRecoilState(categoryNo);
     const resetlecture = useResetRecoilState(lectureNavNo);
     const categoryno = useRecoilValue(categoryNo);
@@ -26,7 +25,6 @@ export default function Header() {
     }
     const closeWrite = () => {
         setwriteB(false);
-        setwriteL(false);
     }
     
     return(
