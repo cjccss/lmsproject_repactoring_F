@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import BoardNav from './boardnav';
 import {useRecoilState, useResetRecoilState } from 'recoil';
 import {boardaction, categoryNo } from '@/recoil/board';
-import { lectureNavNo, lectureaction } from '@/recoil/lecture';
+import { lectureName, lectureNavNo, lectureaction } from '@/recoil/lecture';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -16,16 +16,11 @@ export default function HeaderNav() {
     const [categoryno, setcategoryno] = useRecoilState(categoryNo);
     const resetcategory = useResetRecoilState(categoryNo);
     const resetlecture = useResetRecoilState(lectureNavNo);
-    const [writeB, setwriteB] = useRecoilState(boardaction);
-
-    const [lecutre, setlecture] = useState('');
+    const [lecutre, setlecture] = useRecoilState(lectureName);
 
     const reset = () => {
         resetcategory();
         resetlecture();
-    }
-    const closeWrite = () => {
-        setwriteB(false);
     }
 
     useEffect(() =>{
@@ -34,20 +29,26 @@ export default function HeaderNav() {
 
     useEffect(() => {
         // if(query.subno)setlecture(query.subno)
-        if(query.subno)setlecture('컴퓨터공학개론')
+        if(query.subno != undefined){
+            console.log("언디파인드!");
+            setlecture('컴퓨터공학개론')
+        }
+        console.log(query.subno);
+        console.log("강의이름 "+ lecutre);
     })  
     return(
     <>
         <nav>
-            <ul onClick={closeWrite}>
+            <ul>
                 <Link href="/"><li onClick={reset}>HOME</li></Link>
-                <Link href="/board"><li className={path == "/board"&&!clicknav &&'active'}>커뮤니티</li></Link>
+                <Link href="/board"><li className={path == "/board"&&!clicknav &&'active'} onClick={reset}>커뮤니티</li></Link>
                 <Link href="/board?categoryno=4"><li className={categoryno == 4&&'active'}>공지사항</li></Link>
                 <Link href="/board?categoryno=5"><li className={categoryno == 5&&'active'}>Q&A</li></Link>
             </ul>
-        </nav>    
+        </nav>
         {lootpath == "board"&&<BoardNav />}
-        {lootpath == "lecture"&&<h1>{lecutre}</h1>}
+        {/* {lootpath == "lecture"&&<h1>{lecutre}</h1>} */}
+        {/* {<h1>{lecutre}</h1>} */}
         <style jsx>{`
             nav {
                 border-bottom: solid 1px black;

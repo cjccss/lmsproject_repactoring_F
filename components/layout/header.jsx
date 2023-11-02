@@ -14,7 +14,6 @@ export default function Header() {
     const path = usePathname();
 
     const [loginCheck, setloginCheck] = useRecoilState(isLogin);
-    const [writeB, setwriteB] = useRecoilState(boardaction);
     const resetcategory = useResetRecoilState(categoryNo);
     const resetlecture = useResetRecoilState(lectureNavNo);
     const categoryno = useRecoilValue(categoryNo);
@@ -22,9 +21,6 @@ export default function Header() {
     const reset = () => {
         resetcategory();
         resetlecture();
-    }
-    const closeWrite = () => {
-        setwriteB(false);
     }
     
     return(
@@ -35,7 +31,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/images/logo.png"/>
             </Head>
-            <header onClick={closeWrite}>
+            <header>
                     <div>
                         {loginCheck?
                             <Link href={'/'}><span>이길동 님</span></Link>

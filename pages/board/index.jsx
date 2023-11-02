@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { boardaction, categoryName, categoryNo } from "@/recoil/board";
 import SeoTitle from "@/components/common/seotitle";
-import WriteForm from "@/components/board/writeformB";
+import { useRouter } from "next/router";
 
 export default function BoardHome() {
+    const router = useRouter();
     const categoryno = useRecoilValue(categoryNo);
     const category = useRecoilValue(categoryName);
-    const [write, setwrite] = useRecoilState(boardaction);
 
     return(
         <>
@@ -16,14 +16,14 @@ export default function BoardHome() {
             <h1>
                 {category}
             </h1>
-            {!write?<Board />:<WriteForm />}
-            {categoryno == 0||write?'':
+            <Board />
+            {categoryno == 0?'':
                 <>
                     <div>
                         <input type="text" />
                         <button><Image width={18} height={18} src="/images/search.png" alt="검색" /></button>
                         {/* {categoryno == 4?'':<Link href={'/board/write'}><span>게시글 등록</span></Link>} */}
-                        {categoryno == 4?'':<button onClick={()=>setwrite(true)}>게시글 등록</button>}
+                        {categoryno == 4?'':<button onClick={() => router.push('/board/boardWrite')}>게시글 등록</button>}
                     </div>
                     <div className="filterSub">자동완성</div>
                     <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto"}}>페이지 바</div>

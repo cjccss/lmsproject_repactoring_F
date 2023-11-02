@@ -6,6 +6,11 @@ export const subNo = atom({
     default: 0,
 });
 
+export const lectureName = atom({
+    key: 'lectureName',
+    default: "",
+});
+
 export const lectureNavNo = atom({
     key: 'lectureNavNo',
     default: 0,

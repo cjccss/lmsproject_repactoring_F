@@ -1,12 +1,11 @@
-import { boardaction, categoryNo } from "@/recoil/board";
+import { categoryNo } from "@/recoil/board";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 
-export default function WriteForm() {
-    const [write, setwrite] = useRecoilState(boardaction); // true면 글쓰기 open
+export default function WriteFormB() {
     const categoryno = useRecoilValue(categoryNo);
     const [selected, setselected] = useState();
     const [price, setprice] = useState();
@@ -41,7 +40,6 @@ export default function WriteForm() {
     },[price])
     
     const onSubmit = (data) => {
-        setwrite(false);
         console.log("결과"+data);
     }
 

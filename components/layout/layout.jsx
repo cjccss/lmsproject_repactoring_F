@@ -25,7 +25,7 @@ export default function Layout({children}) {
             <style jsx>{`
                 main {
                     min-height: 40rem;
-                    padding-top: 1rem;
+                    padding-top: 3rem;
                     display :${maindisplay()};
             `}</style>
         </>
