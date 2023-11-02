@@ -8,7 +8,7 @@ import UsedMarket from "@/components/board/usedmarket";
 import Gather from "@/components/board/gather";
 import BoardNotice from "@/components/board/boardnotice";
 import BoardQnA from "@/components/board/boardqna";
-import BoardBtn from "@/components/board/boardbtn";
+import BoardBtn from "@/components/common/boardbtn";
 
 export default function BoardHome() {
     const router = useRouter();
