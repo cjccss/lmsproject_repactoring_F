@@ -1,4 +1,4 @@
-import { lectureNavNo, lectureaction } from "@/recoil/lecture";
+import { lectureNavNo } from "@/recoil/lecture";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -9,7 +9,6 @@ export default function LectureNav() {
     const { query } = useRouter();
     const clicknav = query.lecturenav;
     const [lecturenavno, setlecturenavno] = useRecoilState(lectureNavNo);
-    const [write, setwrite] = useRecoilState(lectureaction);
     const reset = useResetRecoilState(lectureNavNo);
 
     // reset 제대로 되는지 확인해보기
@@ -21,7 +20,7 @@ export default function LectureNav() {
     return(
         <>
             <nav>
-                <ul onClick={() => setwrite(false)}>
+                <ul>
                     <Link href="/lecture"><li onClick={reset}>강의실 홈</li></Link>
                     <Link href="/lecture?lecturenav=1"><li>공지사항</li></Link>
                     <Link href="/lecture?lecturenav=2"><li>강의계획서</li></Link>

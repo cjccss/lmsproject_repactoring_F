@@ -24,8 +24,3 @@ export const lectureNavName = selector ({
         return lectureNav[no-1];
     },
 });
-
-export const lectureaction = atom({
-    key: 'lectureaction',
-    default: false,
-});

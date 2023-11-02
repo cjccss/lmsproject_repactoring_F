@@ -60,23 +60,23 @@ export default function Syllabus() {
                     <th>수업내용</th>
                 </tr>
                 <tr>
-                    <td>1주차(2023.10.02 ~ 2023.10.06)</td>
+                    <td>1주차</td>
                     <td>컴퓨터 알아보자컴퓨터 알아보자Request textDocument/definition failed</td>
                 </tr>
                 <tr>
-                    <td>2주차(2023.10.09 ~ 2023.10.13)</td>
+                    <td>2주차</td>
                     <td>개론 구경하기컴퓨터 알아보자</td>
                 </tr>
                 <tr>
-                    <td>3주차(2023.10.16 ~ 2023.10.20)</td>
+                    <td>3주차</td>
                     <td>컴퓨터와 개론컴퓨터 알아보자</td>
                 </tr>
                 <tr>
-                    <td>4주차(2023.10.23 ~ 2023.10.27)</td>
+                    <td>4주차</td>
                     <td>알아보고 구경하자컴퓨터 알아보자</td>
                 </tr>
                 <tr>
-                    <td>5주차(2023.10.30 ~ 2023.10.31)</td>
+                    <td>5주차</td>
                     <td>Request textDocument/definition failed 잘가요</td>
                 </tr>
             </table>
