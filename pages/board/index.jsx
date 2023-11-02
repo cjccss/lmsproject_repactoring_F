@@ -1,23 +1,29 @@
-import Board from "@/components/board/board";
-import Image from "next/image";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { boardaction, categoryName, categoryNo } from "@/recoil/board";
+import { useRecoilValue } from "recoil";
+import { categoryName, categoryNo } from "@/recoil/board";
 import SeoTitle from "@/components/common/seotitle";
 import { useRouter } from "next/router";
+import Community from "@/components/board/community";
+import Board from "@/components/board/board";
+import UsedMarket from "@/components/board/usedmarket";
+import Gather from "@/components/board/gather";
+import BoardNotice from "@/components/board/boardnotice";
+import BoardQnA from "@/components/board/boardqna";
+import BoardBtn from "@/components/board/boardbtn";
 
 export default function BoardHome() {
     const router = useRouter();
     const categoryno = useRecoilValue(categoryNo);
     const category = useRecoilValue(categoryName);
+    const currboardnav = [<Community />,<Board />,<UsedMarket />,
+                            <Gather />,<BoardNotice />,<BoardQnA />];
 
     return(
         <>
             <SeoTitle title = {category == '인기게시물'?'커뮤니티':category} />
-            <h1>
-                {category}
-            </h1>
-            <Board />
-            {categoryno == 0?'':
+            {console.log("카테고리번호 "+categoryno)}
+            {currboardnav[categoryno]}
+            <BoardBtn />
+            {/* {categoryno == 0?'':
                 <>
                     <div>
                         <input type="text" />
@@ -27,11 +33,9 @@ export default function BoardHome() {
                     <div className="filterSub">자동완성</div>
                     <div style={{textAlign:"center",border:"1px solid black", width:"300px", margin:"0 auto"}}>페이지 바</div>
                 </>
-            }
-            <style jsx>{`
-                h1 {
-                    margin-left: 2rem;
-                }
+            } */}
+            {/* <style jsx>{`
+
                 div {
                     margin-left: 2rem;
                     margin-right: 2rem;
@@ -65,7 +69,7 @@ export default function BoardHome() {
                     background-color: #e9e9e9;
                     cursor: pointer;
                 }
-            `}</style>
+            `}</style> */}
         </>
     );
 }

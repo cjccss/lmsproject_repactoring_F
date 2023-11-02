@@ -1,53 +1,57 @@
+import {usePathname} from 'next/navigation';
 
-
-export default function Board() {
+export default function Community() {
+    const path = usePathname();
     return(
     <>
-        <h1>자유게시판</h1>
+        <h1>인기 게시글</h1>
         <div>       
             <table>
                 <colgroup>
                     <col width="*" />
+                    {path == "/"&&<col width="*" />}
                     <col width="50%" />
-                    <col width="*" />
-                    <col width="*" />
                     <col width="*" />
                     <col width="*" />
                 </colgroup>
                 <thead>
                     <tr>
                         <th>No.</th>
+                        {path == "/"&&<th>분류</th>}
                         <th>제목</th>
                         <th>추천수</th>
                         <th>작성자</th>
-                        <th>작성일자</th>
-                        <th>조회수</th>
+                        {path !== "/"&&<th>작성일자</th>}
+                        {path !== "/"&&<th>조회수</th>}
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        {path == "/"&&<td>자유게시판</td>}
                         <td>안녕하세요</td>
                         <td>1</td>
                         <td>일길동</td>
-                        <td>2023-10-13</td>
-                        <td>3</td>
+                        {path !== "/"&&<td>2023-10-13</td>}
+                        {path !== "/"&&<td>3</td>}
                     </tr>
                     <tr>
                         <td>1</td>
+                        {path == "/"&&<td>중고거래</td>}
                         <td>배고파요</td>
                         <td>0</td>
                         <td>이길동</td>
-                        <td>2023-10-13</td>
-                        <td>0</td>
+                        {path !== "/"&&<td>2023-10-13</td>}
+                        {path !== "/"&&<td>0</td>}
                     </tr>
                     <tr>
                         <td>1</td>
+                        {path == "/"&&<td>모집합니다</td>}
                         <td>잘가요</td>
                         <td>3</td>
                         <td>삼길동</td>
-                        <td>2023-10-13</td>
-                        <td>3</td>
+                        {path !== "/"&&<td>2023-10-13</td>}
+                        {path !== "/"&&<td>3</td>}
                     </tr>
                 </tbody>
             </table>

@@ -1,6 +1,6 @@
 import ToggleSwitch from "./toggleSwitch";
 import { useState } from "react";
-import Board from "../board/board";
+import Community from "../board/community";
 
 export default function BoardwithChart() {
     const [switchOn, setSwitchOn] = useState(false);
@@ -15,7 +15,7 @@ export default function BoardwithChart() {
             <h2>커뮤니티</h2>
             <h3>실시간 인기글</h3>
         </div>
-        <Board />
+        <Community />
         <style jsx>{`
             div {
                 text-align: center;

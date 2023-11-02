@@ -30,6 +30,7 @@ export default function HeaderNav() {
     useEffect(() => {
         // if(query.subno)setlecture(query.subno)
         if(query.subno != undefined || query.subno != ''){
+            //리코일에서 api통해 subno에 해당하는 강의 이름을 가져와서 set하기
             setlecture('컴퓨터공학개론')
         }
     })  
