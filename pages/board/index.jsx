@@ -22,7 +22,6 @@ export default function BoardHome() {
                     <div>
                         <input type="text" />
                         <button><Image width={18} height={18} src="/images/search.png" alt="검색" /></button>
-                        {/* {categoryno == 4?'':<Link href={'/board/write'}><span>게시글 등록</span></Link>} */}
                         {categoryno == 4?'':<button onClick={() => router.push('/board/boardWrite')}>게시글 등록</button>}
                     </div>
                     <div className="filterSub">자동완성</div>
@@ -65,17 +64,6 @@ export default function BoardHome() {
                     border-radius: 0.5rem;
                     background-color: #e9e9e9;
                     cursor: pointer;
-                }
-                /* span {
-                    float: right;
-                    padding: 0.6rem;
-                    padding-top: 0.45rem;
-                    border: none;
-                    border-radius: 0.5rem;
-                    background-color: #e9e9e9;
-                } */
-                .filterSub{
-                    
                 }
             `}</style>
         </>

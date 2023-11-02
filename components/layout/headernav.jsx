@@ -29,12 +29,9 @@ export default function HeaderNav() {
 
     useEffect(() => {
         // if(query.subno)setlecture(query.subno)
-        if(query.subno != undefined){
-            console.log("언디파인드!");
+        if(query.subno != undefined || query.subno != ''){
             setlecture('컴퓨터공학개론')
         }
-        console.log(query.subno);
-        console.log("강의이름 "+ lecutre);
     })  
     return(
     <>
@@ -47,8 +44,7 @@ export default function HeaderNav() {
             </ul>
         </nav>
         {lootpath == "board"&&<BoardNav />}
-        {/* {lootpath == "lecture"&&<h1>{lecutre}</h1>} */}
-        {/* {<h1>{lecutre}</h1>} */}
+        {lootpath == "lecture"&&<h1>{lecutre}</h1>}
         <style jsx>{`
             nav {
                 border-bottom: solid 1px black;
