@@ -34,7 +34,7 @@ export default function Header() {
             <header>
                     <div>
                         {loginCheck?
-                            <Link href={'/'}><span>이길동 님</span></Link>
+                            <Link href={'/user/mypage'}><span>이길동 님</span></Link>
                         :
                             <Link href={'/user/login'}><span>로그인</span></Link>
                         }   
