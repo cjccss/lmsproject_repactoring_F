@@ -6,43 +6,47 @@ export default function UserLectureInfo() {
     const levelno = useRecoilValue(level);
     return(
         <p>
-            <div>
-                <h2>과목별 성적조회</h2>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>과목번호</th>
-                        <th>강의명</th>
-                        <th>교수</th>
-                        <th>총점</th>
-                        <th>상세보기</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>회계원리</td>
-                        <td>일길동</td>
-                        <td>50/100</td>
-                        <td><span>세부성적 조회하기</span></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>경영학개론</td>
-                        <td>이길동</td>
-                        <td>40/100</td>
-                        <td><span>세부성적 조회하기</span></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>배고픔의원리</td>
-                        <td>삼길동</td>
-                        <td>30/100</td>
-                        <td><span>세부성적 조회하기</span></td>
-                    </tr>
-                </tbody>
-            </table>
+            {levelno == 2&& 
+                <>
+                    <div>
+                        <h2>과목별 성적조회</h2>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>과목번호</th>
+                                <th>강의명</th>
+                                <th>교수</th>
+                                <th>총점</th>
+                                <th>상세보기</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>회계원리</td>
+                                <td>일길동</td>
+                                <td>50/100</td>
+                                <td><span>세부성적 조회하기</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>경영학개론</td>
+                                <td>이길동</td>
+                                <td>40/100</td>
+                                <td><span>세부성적 조회하기</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>배고픔의원리</td>
+                                <td>삼길동</td>
+                                <td>30/100</td>
+                                <td><span>세부성적 조회하기</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </>
+            }
             <style jsx>{`
                 p{
                     width: 100%;
