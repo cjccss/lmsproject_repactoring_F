@@ -1,15 +1,17 @@
 import { level } from "@/recoil/user";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 
 export default function UserInfo() {
+    const router = useRouter();
     const levelno = useRecoilValue(level);
 
     return(
         <p>
             <div>
                 <h2>나의 회원정보</h2>
-                <button>회원정보 수정</button>
+                <button onClick={() => router.push("/user/editmyinfo")}>회원정보 수정</button>
             </div>
             <div>
                 <Image src="/images/profile1.png" alt="프로필" width={130} height={140} />
